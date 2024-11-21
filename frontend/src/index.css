@@ -258,3 +258,52 @@ p {
     @apply bg-background text-foreground;
   }
 }
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  min-width: 300px;
+  min-height: 500px;
+  margin: auto;
+  margin-top: 10px;
+  background-color: #44624a;
+  border-radius: 50px;
+  gap: 15px;
+}
+.form-name{
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: #f1ebe1;
+  margin-top: 20px;
+}
+.form-button{
+  background-color: #f1ebe1;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  color: #44624a;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}
+.form-button:hover {
+  background-color: #b4c9b1;
+}
+.form-input{
+  background-color: #f1ebe1;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  color: #44624a;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}

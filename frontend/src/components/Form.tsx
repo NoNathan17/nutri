@@ -41,7 +41,7 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
-      <h1>{name}</h1>
+      <h1 className="form-name">{name}</h1>
       <input
         className="form-input"
         type="text"
