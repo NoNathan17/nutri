@@ -3,6 +3,7 @@ import Login from "./pages/login"
 import Register from "./pages/register"
 import Home from "./pages/home"
 import ProtectedRoute from "./components/ProtectedRoute"
+import BiometricsForm from "./components/BiometricsForm"
 
 function Logout() {
   localStorage.clear()
@@ -26,6 +27,14 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route 
+          path="/biometrics"
+          element={
+            <ProtectedRoute>
+              <BiometricsForm />
+            </ProtectedRoute>
+          }
+          />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/register" element={<RegisterAndLogout />} />

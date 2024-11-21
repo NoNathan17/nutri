@@ -1,4 +1,7 @@
-import ThreeDLogo from './ThreeDLogo';
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+import ThreeDLogo from './ThreeDLogo'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -53,7 +56,9 @@ function Home() {
           A fitness web application designed to help you meet your personal <br />
           fitness goals. Made by Jay + Nathan + Danny @ WebJam '24
         </p>
-        <button className="start-button">start here !! ↩</button>
+        <Link to="/biometrics">
+            <button className="start-button">start here !! ↩</button>
+        </Link>
         <p className="plans-intro">...or check out some of our plans</p>
 
         {/* Tab Section */}
