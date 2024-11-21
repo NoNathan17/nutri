@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import ThreeDLogo from '../components/ThreeDLogo';
-import {NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger} from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger} from "@/components/ui/navigation-menu";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"; 
 import { Button } from "@/components/ui/button"; 
 import BiometricsForm from '../components/BiometricsForm';  
@@ -146,7 +146,7 @@ function Home() {
 
         </div>
 
-        <p className="plans-intro">our personalized plans include...</p>
+        <p className="plans-intro">... our personalized plans include</p>
 
         {/* Tab Section */}
         <div className="tabs">
