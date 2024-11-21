@@ -172,7 +172,7 @@ const BiometricsForm = () => {
           />
         </div>
         <DialogFooter>
-              <Button type="submit">Get Reccomendations</Button>
+              <Button type="submit">Get Recommendations</Button>
           </DialogFooter>
       </form>
 
