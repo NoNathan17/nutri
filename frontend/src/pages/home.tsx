@@ -1,7 +1,5 @@
-// Home.tsx
-
 import React from 'react';
-import ThreeDLogo from './ThreeDLogo';
+import ThreeDLogo from '../components/ThreeDLogo';
 import {NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger} from "@/components/ui/navigation-menu";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"; 
 import { Button } from "@/components/ui/button"; 

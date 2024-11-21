@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -25,6 +26,7 @@ const BiometricsForm = () => {
   const [bmiData, setBmiData] = useState<{ bmi: number; maintenanceCalories: number } | null>(null);
   const [showDialog, setShowDialog] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate()
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -88,6 +90,7 @@ const BiometricsForm = () => {
   
       // Optionally, store the calculated values in local storage or state
       localStorage.setItem('biometricsData', JSON.stringify({ bmi, maintenanceCalories }));
+      navigate("/profile")
   
       // Show the dialog with the submitted data
       setBmiData({ bmi, maintenanceCalories });
@@ -172,7 +175,7 @@ const BiometricsForm = () => {
           />
         </div>
         <DialogFooter>
-              <Button type="submit">Get Recommendations</Button>
+            <Button type="submit">Get Recommendations</Button>
           </DialogFooter>
       </form>
 

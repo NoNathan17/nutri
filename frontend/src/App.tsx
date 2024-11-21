@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import Login from "./pages/login"
 import Register from "./pages/register"
 import Home from "./pages/home"
+import Profile from "./pages/profile"
 import ProtectedRoute from "./components/ProtectedRoute"
-import BiometricsForm from "./components/BiometricsForm"
 
 function Logout() {
   localStorage.clear()
@@ -28,10 +28,10 @@ function App() {
           }
         />
         <Route 
-          path="/biometrics"
+          path="/profile"
           element={
             <ProtectedRoute>
-              <BiometricsForm />
+              <Profile />
             </ProtectedRoute>
           }
           />
