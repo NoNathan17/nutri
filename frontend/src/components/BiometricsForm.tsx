@@ -22,6 +22,8 @@ const BiometricsForm = () => {
     sex: '',
   });
 
+  const [bmiData, setBmiData] = useState<{ bmi: number; maintenanceCalories: number } | null>(null);
+  const [showDialog, setShowDialog] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -173,6 +175,20 @@ const BiometricsForm = () => {
               <Button type="submit">Get Reccomendations</Button>
           </DialogFooter>
       </form>
+
+      {showDialog && bmiData && (
+        <div className="mt-4 p-4 bg-gray-100 rounded shadow">
+          <h3 className="text-lg font-bold">Results</h3>
+          <p>BMI: {bmiData.bmi}</p>
+          <p>Maintenance Calories: {bmiData.maintenanceCalories}</p>
+          <button
+            onClick={() => setShowDialog(false)}
+            className="mt-2 bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600"
+          >
+            Close
+          </button>
+        </div>
+      )}
     </>
   );
 };
