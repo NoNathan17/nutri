@@ -53,6 +53,7 @@ function Home() {
       if (!isLoggedIn) {
         // If not logged in, redirect to the login page
         navigate('/login');
+        alert('Please login first!')
       }
     };
 
@@ -76,6 +77,15 @@ function Home() {
               </NavigationMenuLink>
             </NavigationMenuItem>
 
+            {/* Logout Link */}
+            {isLoggedIn && (
+            <NavigationMenuItem>
+              <NavigationMenuLink className="nav-button" href="/logout">
+                logout
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            )}
+
             {/* Plan Dropdown Link */}
             <NavigationMenuItem>
               <NavigationMenuTrigger className="nav-button">plan</NavigationMenuTrigger>
@@ -93,7 +103,6 @@ function Home() {
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
-
           </NavigationMenuList>
         </NavigationMenu>
       </div>
