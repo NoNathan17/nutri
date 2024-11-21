@@ -1,8 +1,8 @@
 import React from 'react'
 import { Navigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
-import api from "../src/api";
-import { REFRESH_TOKEN, ACCESS_TOKEN } from "../src/constants";
+import api from "../api";
+import { REFRESH_TOKEN, ACCESS_TOKEN } from "../constants";
 import { useState, useEffect } from "react";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
