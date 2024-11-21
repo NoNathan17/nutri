@@ -20,8 +20,10 @@
   },
   "scripts": {
     "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
-    "build": "react-scripts build",
+    "dev": "build",
+    "build": "vite build",
     "test": "react-scripts test",
+    "serve": "vite preview",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
