@@ -2,12 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
-import LoadingIndicator from "./LoadingIndicator";
 
-// Define the props type
 interface FormProps {
   route: string;
-  method: "login" | "register"; // Restrict `method` to specific strings
+  method: "login" | "register"; 
 }
 
 const Form: React.FC<FormProps> = ({ route, method }) => {
@@ -23,7 +21,9 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
     e.preventDefault();
 
     try {
+      console.log({ username, password });
       const res = await api.post(route, { username, password });
+      console.log('Response:', res.data);
       if (method === "login") {
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
@@ -32,6 +32,7 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
         navigate("/login");
       }
     } catch (error) {
+      console.log(error)
       alert(error);
     } finally {
       setLoading(false);
@@ -55,7 +56,6 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
       />
-      {loading && <LoadingIndicator />}
       <button className="form-button" type="submit">
         {name}
       </button>
