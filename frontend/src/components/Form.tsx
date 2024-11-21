@@ -33,7 +33,7 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
       }
     } catch (error) {
       console.log(error)
-      alert(error);
+      alert("Error! Please try again.");
     } finally {
       setLoading(false);
     }
