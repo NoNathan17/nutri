@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import ThreeDLogo from '../components/ThreeDLogo';
-import {NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger} from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger} from "@/components/ui/navigation-menu";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"; 
 import { Button } from "@/components/ui/button"; 
 import BiometricsForm from '../components/BiometricsForm';  
@@ -91,13 +91,13 @@ function Home() {
               <NavigationMenuTrigger className="nav-button">plan</NavigationMenuTrigger>
               <NavigationMenuContent className="dropdown-menu">
                 <ul className="grid w-full gap-3 p-4">
-                  <ListItem href="/plan" title="Bodybuilding" style={{ color: '#44624A' }}>
+                  <ListItem href="/bodybuilding" title="Bodybuilding" style={{ color: '#44624A' }}>
                     A plan tailored to build muscle and strength effectively.
                   </ListItem>
-                  <ListItem href="/plan" title="Weight Loss" style={{ color: '#44624A' }}>
+                  <ListItem href="/weightloss" title="Weight Loss" style={{ color: '#44624A' }}>
                     Structured guidance for healthy and sustainable weight loss.
                   </ListItem>
-                  <ListItem href="/plan" title="General Health" style={{ color: '#44624A' }}>
+                  <ListItem href="/health" title="General Health" style={{ color: '#44624A' }}>
                     Tips and routines to maintain overall well-being.
                   </ListItem>
                 </ul>
@@ -113,15 +113,20 @@ function Home() {
         <h1>nutri !!</h1>
         <p>
           A fitness web application designed to help you meet your personal <br />
-          fitness goals. Made by Jay + Nathan + Danny @ WebJam '24
+          fitness goals. Made by Jay + Nathan + Danny @ WebJam '24 ᕕ( ᐛ )ᕗ.
         </p>
 
         {/* Dialog with BiometricsForm */}
         <div className="middle-tabs">
+        <Link to="/register">
+          <Button variant="outline" className="start-button">
+                start here !! ↩
+          </Button>
+        </Link>
         <Dialog>
           <DialogTrigger asChild>
             <Button variant="outline" className="start-button" onClick={handleStartClick}>
-              start here !! ↩
+              dashboard ↺
             </Button>
           </DialogTrigger>
           
@@ -138,21 +143,16 @@ function Home() {
             <BiometricsForm />
           </DialogContent>
         </Dialog>
-        <Link to="/register">
-          <Button variant="outline" className="start-button">
-                new? sign up ↩
-          </Button>
-        </Link>
 
         </div>
 
-        <p className="plans-intro">our personalized plans include...</p>
+        <p className="plans-intro">... our personalized plans include</p>
 
         {/* Tab Section */}
         <div className="tabs">
-          <button className="tab">bodybuilding</button>
-          <button className="tab">weight loss</button>
-          <button className="tab">general health</button>
+          <Link to="/plan" className="tab">Bodybuilding</Link>
+          <Link to="/plan" className="tab">Weight Loss</Link>
+          <Link to="/plan" className="tab">General Health</Link>
         </div>
 
         {/* Plan Content */}
