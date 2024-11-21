@@ -7,6 +7,31 @@ import {NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMen
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"; 
 import { Button } from "@/components/ui/button"; 
 import BiometricsForm from '../components/BiometricsForm';  
+import { cn } from "@/lib/utils";
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <a
+        ref={ref}
+        className={cn(
+          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+          className
+        )}
+        {...props}
+      >
+        <div className="text-sm font-medium leading-none">{title}</div>
+        <p className="line-clamp-3 text-sm leading-snug text-muted-foreground">
+          {children}
+        </p>
+      </a>
+    </li>
+  );
+});
+ListItem.displayName = "ListItem";
 
 function Home() {
   return (
@@ -25,21 +50,28 @@ function Home() {
             {/* Nutr Link */}
             <NavigationMenuItem>
               <NavigationMenuLink className="nav-button" href="/nutr">
-                nutr
+                nutri !!
               </NavigationMenuLink>
             </NavigationMenuItem>
 
             {/* Plan Dropdown Link */}
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="nav-button">
-                plan
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <NavigationMenuLink href="/plan/bodybuilding">Bodybuilding</NavigationMenuLink>
-                <NavigationMenuLink href="/plan/weight-loss">Weight Loss</NavigationMenuLink>
-                <NavigationMenuLink href="/plan/health">Health</NavigationMenuLink>
+              <NavigationMenuTrigger className="nav-button">plan</NavigationMenuTrigger>
+              <NavigationMenuContent className="dropdown-menu">
+                <ul className="grid w-full gap-3 p-4">
+                  <ListItem href="/plan/bodybuilding" title="Bodybuilding">
+                    A plan tailored to build muscle and strength effectively.
+                  </ListItem>
+                  <ListItem href="/plan/weight-loss" title="Weight Loss">
+                    Structured guidance for healthy and sustainable weight loss.
+                  </ListItem>
+                  <ListItem href="/plan/health" title="Health">
+                    Tips and routines to maintain overall well-being.
+                  </ListItem>
+                </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
+
           </NavigationMenuList>
         </NavigationMenu>
       </div>
@@ -83,9 +115,9 @@ function Home() {
 
         {/* Tab Section */}
         <div className="tabs">
-          <button className="tab">Bodybuilding</button>
-          <button className="tab">Weight Loss</button>
-          <button className="tab">Health</button>
+          <button className="tab">bodybuilding</button>
+          <button className="tab">weight loss</button>
+          <button className="tab">health</button>
         </div>
 
         {/* Plan Content */}
