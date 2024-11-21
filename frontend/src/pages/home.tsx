@@ -12,7 +12,7 @@ function Home() {
                 <h1>nutri !!</h1>
                 <p>
                     a fitness web application designed to help you meet your personal <br />
-                    fitness goals. made by jay + nathan + danny @ webjam 24'
+                    fitness goals. made by jay + nathan + danny @ webjam '24
                 </p>
                 <button className="start-button">start here !! ↩</button>
                 <p className="plans-intro">...or check out some of our plans</p>
