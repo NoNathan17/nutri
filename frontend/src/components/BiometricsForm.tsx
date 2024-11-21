@@ -94,7 +94,7 @@ const BiometricsForm = () => {
       setShowDialog(true);
     } catch (error) {
       console.error('Error submitting biometrics:', error);
-      setError("Failed to submit biometrics. Please try again later.");
+      setError("Failed to submit biometrics. Please try again.");
     }
   };
   
@@ -168,7 +168,7 @@ const BiometricsForm = () => {
             value={formData.height}
             onChange={handleInputChange}
             className="col-span-3"
-            placeholder="6'2"
+            placeholder={`6'2"`}
           />
         </div>
         <DialogFooter>
