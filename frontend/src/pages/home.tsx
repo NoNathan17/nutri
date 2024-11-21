@@ -91,13 +91,13 @@ function Home() {
               <NavigationMenuTrigger className="nav-button">plan</NavigationMenuTrigger>
               <NavigationMenuContent className="dropdown-menu">
                 <ul className="grid w-full gap-3 p-4">
-                  <ListItem href="/plan" title="Bodybuilding" style={{ color: '#44624A' }}>
+                  <ListItem href="/bodybuilding" title="Bodybuilding" style={{ color: '#44624A' }}>
                     A plan tailored to build muscle and strength effectively.
                   </ListItem>
-                  <ListItem href="/plan" title="Weight Loss" style={{ color: '#44624A' }}>
+                  <ListItem href="/weightloss" title="Weight Loss" style={{ color: '#44624A' }}>
                     Structured guidance for healthy and sustainable weight loss.
                   </ListItem>
-                  <ListItem href="/plan" title="General Health" style={{ color: '#44624A' }}>
+                  <ListItem href="/health" title="General Health" style={{ color: '#44624A' }}>
                     Tips and routines to maintain overall well-being.
                   </ListItem>
                 </ul>
@@ -118,10 +118,15 @@ function Home() {
 
         {/* Dialog with BiometricsForm */}
         <div className="middle-tabs">
+        <Link to="/register">
+          <Button variant="outline" className="start-button">
+                start here !! ↩
+          </Button>
+        </Link>
         <Dialog>
           <DialogTrigger asChild>
             <Button variant="outline" className="start-button" onClick={handleStartClick}>
-              start here !! ↩
+              dashboard ↺
             </Button>
           </DialogTrigger>
           
@@ -138,11 +143,6 @@ function Home() {
             <BiometricsForm />
           </DialogContent>
         </Dialog>
-        <Link to="/register">
-          <Button variant="outline" className="start-button">
-                new? sign up ↩
-          </Button>
-        </Link>
 
         </div>
 
@@ -150,9 +150,9 @@ function Home() {
 
         {/* Tab Section */}
         <div className="tabs">
-          <button className="tab">bodybuilding</button>
-          <button className="tab">weight loss</button>
-          <button className="tab">general health</button>
+          <Link to="/plan" className="tab">bodybuilding</Link>
+          <Link to="/plan" className="tab">weight loss</Link>
+          <Link to="/plan" className="tab">general health</Link>
         </div>
 
         {/* Plan Content */}

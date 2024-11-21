@@ -116,6 +116,7 @@ p {
 
 .tab:hover {
   background-color: #b4c9b1;
+  color: inherit;
 }
 
 .plan-container {
