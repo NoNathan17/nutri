@@ -1,3 +1,4 @@
+import ThreeDLogo from './ThreeDLogo';
 function Home() {
     return (
         <div className="app-container">
@@ -7,6 +8,7 @@ function Home() {
                 <button className="nav-button">nutr</button>
             </div>
             <div className="app-container">
+                <ThreeDLogo/>
                 <h1>nutri !!</h1>
                 <p>
                     a fitness web application designed to help you meet your personal <br />
