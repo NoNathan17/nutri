@@ -29,8 +29,8 @@ const Profile = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Your Profile</h1>
+    <div className="form-container">
+      <h1 className="form-name">Your Profile</h1>
       <div>
         {/* Conditionally render the BMI and Maintenance Calories */}
         <h2>BMI: {bmi ? bmi : "Loading..."}</h2>
@@ -38,16 +38,17 @@ const Profile = () => {
       </div>
       <div>
         <Select>
-          <SelectTrigger className="w-[280px]">
-            <SelectValue placeholder="Select Fitness Plan" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectItem value="Bodybuilding">Bodybuilding</SelectItem>
-              <SelectItem value="Weight Loss">Weight Loss</SelectItem>
-              <SelectItem value="GeneralHealth">General Health</SelectItem>
-            </SelectGroup>
-          </SelectContent>
+        <SelectTrigger className="w-[280px]" background-color="#98b496">
+                <SelectValue placeholder="Select Fitness Plan" />
+                </SelectTrigger>
+                <SelectContent className="select-content">
+                <SelectGroup>
+                    <SelectItem className="select-item" value="Bodybuilding">Bodybuilding</SelectItem>
+                    <SelectItem className="select-item" value="Weight Loss">Weight Loss</SelectItem>
+                    <SelectItem className="select-item" value="GeneralHealth">General Health</SelectItem>
+                </SelectGroup>
+                </SelectContent>
+
         </Select>
       </div>
     </div>
