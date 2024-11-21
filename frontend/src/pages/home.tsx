@@ -1,10 +1,9 @@
 // Home.tsx
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import ThreeDLogo from './ThreeDLogo';
 import {NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger} from "@/components/ui/navigation-menu";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"; 
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"; 
 import { Button } from "@/components/ui/button"; 
 import BiometricsForm from '../components/BiometricsForm';  
 import { cn } from "@/lib/utils";
@@ -118,19 +117,19 @@ function Home() {
 
         {/* Plan Content */}
         <div className="plan-container">
-          <div className="plan">
+          <div className="plan hover:scale-105 transition-transform duration-200">
             <h3>✤ Bodybuilding | 健美</h3>
             <p>
               Bodybuilding focuses on building muscle mass and strength through targeted weight training. It helps sculpt your body, improve metabolism, and increase overall vitality. Perfect for those looking to gain muscle while reducing body fat.
             </p>
           </div>
-          <div className="plan">
+          <div className="plan hover:scale-105 transition-transform duration-200">
             <h3>✤ Weight Loss | 减肥</h3>
             <p>
               Weight loss involves a combination of calorie management, cardiovascular exercise, and strength training. It's designed to reduce body fat and improve fitness levels, leading to better health, more energy, and an overall improved sense of well-being.
             </p>
           </div>
-          <div className="plan">
+          <div className="plan hover:scale-105 transition-transform duration-200">
             <h3>✤ Health | 健康</h3>
             <p>
               Health focuses on holistic well-being, including improving cardiovascular fitness, flexibility, and mental health. This plan is great for anyone seeking to enhance their quality of life, reduce stress, and develop sustainable healthy habits.
