@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button"
+import { DialogFooter } from "@/components/ui/dialog"
 import {
   Select,
   SelectContent,
@@ -17,11 +19,9 @@ const BiometricsForm = () => {
     age: '',
     weight: '',
     height: '',
-    gender: '',
+    sex: '',
   });
 
-  const [bmiData, setBmiData] = useState<{ bmi: number; maintenanceCalories: number } | null>(null);
-  const [showDialog, setShowDialog] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,9 +44,9 @@ const BiometricsForm = () => {
     return Math.round(bmi * 10) / 10; // Rounded to 1 decimal place
   };
 
-  const calculateMaintenanceCalories = (weight: number, height: number, age: number, gender: string) => {
+  const calculateMaintenanceCalories = (weight: number, height: number, age: number, sex: string) => {
     let bmr = 0;
-    if (gender === 'Male') {
+    if (sex === 'Male') {
       bmr = 10 * weight + 6.25 * height - 5 * age + 5;
     } else {
       bmr = 10 * weight + 6.25 * height - 5 * age - 161;
@@ -57,35 +57,37 @@ const BiometricsForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
-
-    const { name, age, weight, height, gender } = formData;
-
-    if (!name || !age || !weight || !height || !gender) {
+  
+    const { name, age, weight, height, sex } = formData;
+  
+    if (!name || !age || !weight || !height || !sex) {
       setError("All fields are required.");
       return;
     }
-
+  
+    // Calculate BMI and maintenance calories
     const bmi = calculateBMI(height, weight);
     const maintenanceCalories = calculateMaintenanceCalories(
       parseFloat(weight),
-      parseFloat(height) * 2.54, // Convert to cm
+      parseFloat(height) * 2.54, // Convert height from feet and inches to cm
       parseInt(age),
-      gender
+      sex
     );
-
-    const userData = { bmi, maintenanceCalories };
-    localStorage.setItem('userData', JSON.stringify(userData));
-
+  
+    // Prepare the data to be sent to the backend
+    const biometricsData = { name, age, weight, height, sex, bmi, maintenance_calories: maintenanceCalories };
+  
     try {
-      const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:8000/fitness/api/biometrics/',
-        formData,
-        { headers: { Authorization: `Bearer ${token}` } }
+        'http://localhost:8000/api/biometrics/', 
+        biometricsData,  // Send biometric data
       );
       console.log('Biometrics submitted:', response.data);
-
-      // Show dialog with BMI and maintenance calories
+  
+      // Optionally, store the calculated values in local storage or state
+      localStorage.setItem('biometricsData', JSON.stringify({ bmi, maintenanceCalories }));
+  
+      // Show the dialog with the submitted data
       setBmiData({ bmi, maintenanceCalories });
       setShowDialog(true);
     } catch (error) {
@@ -93,7 +95,7 @@ const BiometricsForm = () => {
       setError("Failed to submit biometrics. Please try again later.");
     }
   };
-
+  
   return (
     <>
       <form onSubmit={handleSubmit} className="grid gap-4 py-4">
@@ -122,20 +124,20 @@ const BiometricsForm = () => {
           />
         </div>
         <div className="grid grid-cols-4 items-center gap-4">
-          <Label htmlFor="gender" className="text-right">
-            Gender
+          <Label htmlFor="sex" className="text-right">
+            Sex
           </Label>
           <Select
-            value={formData.gender}
+            value={formData.sex}
             onValueChange={(value) => {
               setFormData({
                 ...formData,
-                gender: value,
+                sex: value,
               });
             }}
           >
             <SelectTrigger className="w-[280px]">
-              <SelectValue placeholder="Select Gender" />
+              <SelectValue placeholder="Select Sex" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -167,21 +169,10 @@ const BiometricsForm = () => {
             placeholder="6'2"
           />
         </div>
+        <DialogFooter>
+              <Button type="submit">Get Reccomendations</Button>
+          </DialogFooter>
       </form>
-
-      {showDialog && bmiData && (
-        <div className="mt-4 p-4 bg-gray-100 rounded shadow">
-          <h3 className="text-lg font-bold">Results</h3>
-          <p>BMI: {bmiData.bmi}</p>
-          <p>Maintenance Calories: {bmiData.maintenanceCalories}</p>
-          <button
-            onClick={() => setShowDialog(false)}
-            className="mt-2 bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600"
-          >
-            Close
-          </button>
-        </div>
-      )}
     </>
   );
 };
