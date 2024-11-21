@@ -104,10 +104,6 @@ function Home() {
 
             {/* Biometrics Form Component */}
             <BiometricsForm />
-
-            <DialogFooter>
-              <Button type="submit">Save changes</Button>
-            </DialogFooter>
           </DialogContent>
         </Dialog>
 
