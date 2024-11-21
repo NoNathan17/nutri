@@ -36,7 +36,7 @@ ListItem.displayName = "ListItem";
 function Home() {
     const navigate = useNavigate();
     
-    // Check if the user is logged in (you can adjust this logic based on your authentication setup)
+    // Check if the user is logged in
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   
     useEffect(() => {
