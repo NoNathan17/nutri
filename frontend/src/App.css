@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-color: #F1EBE1;
+  font-family: 'Inter', sans-serif;
+}
+
+h1 {
+  color: #44624A;
+  font-size: 96px;
+  font-weight: normal;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+body, html {
+  margin: 0;
+  height: 100%;
+}
+
+.app-container {
+  align-items:center;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+  height: 100vh;
+  justify-content: center;
+}
+
+p {
+  color: #44624A;
+  font-size: 24px;
+  margin-top: 20px;
+  text-align: center;
+}

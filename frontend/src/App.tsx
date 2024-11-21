@@ -20,9 +20,12 @@ const App = () => {
   }, []);
 
   return (
-      <div>
-          <h1>Welcome to Nutri</h1>
-          <p>{message || 'Loading...'}</p>
+      <div className="app-container">
+          <h1>nutri !!</h1>
+          <p>
+            a fitness application designed to help you meet your personal <br />
+            fitness goals. made by jay + nathan + danny</p>
+          <p>{/*message || 'Loading...'*/}</p>
       </div>
   );
 };
