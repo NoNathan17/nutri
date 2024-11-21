@@ -27,8 +27,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #F1EBE1;
-  font-family: 'Inter', sans-serif;
+  background-color: #f1ebe1;
+  font-family: "Inter", sans-serif;
   padding: 0;
   flex-direction: column;
   justify-content: center;
@@ -44,7 +44,7 @@ body {
   padding: 20px;
   max-width: 800px;
   margin: auto;
-  margin-top: 55px;
+  margin-top: 10px;
 }
 
 .icon {
@@ -55,19 +55,18 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  color: #44624A;
-  font-weight: bold;
+  color: #44624a;
   margin-bottom: 10px;
 }
 
 p {
-  color: #44624A;
+  color: #44624a;
   font-size: 18px;
   line-height: 1.6;
 }
 
 .start-button {
-  background-color: #B4C9B1;
+  background-color: #b4c9b1;
   border: none;
   border-radius: 5px;
   color: white;
@@ -78,11 +77,11 @@ p {
 }
 
 .start-button:hover {
-  background-color: #98B496;
+  background-color: #98b496;
 }
 
 .plans-intro {
-  color: #44624A;
+  color: #44624a;
   font-size: 18px;
   font-style: italic;
   margin: 20px 0;
@@ -96,17 +95,17 @@ p {
 }
 
 .tab {
-  background-color: #D8E3D3;
+  background-color: #d8e3d3;
   border: none;
   border-radius: 15px;
-  color: #44624A;
+  color: #44624a;
   padding: 10px 15px;
   font-size: 14px;
   cursor: pointer;
 }
 
 .tab:hover {
-  background-color: #B4C9B1;
+  background-color: #b4c9b1;
 }
 
 .plan-container {
@@ -117,7 +116,7 @@ p {
 }
 
 .plan {
-  background-color: #D8E3D3;
+  background-color: #d8e3d3;
   border-radius: 10px;
   padding: 20px;
   text-align: center;
@@ -129,13 +128,13 @@ p {
 }
 
 .plan h3 {
-  color: #44624A;
+  color: #44624a;
   margin-bottom: 10px;
 }
 
 .plan p {
   font-size: 14px;
-  color: #44624A;
+  color: #44624a;
   line-height: 1.4;
 }
 
@@ -148,24 +147,24 @@ p {
 }
 
 .nav-button {
-  background-color: #D8E3D3;
+  background-color: #d8e3d3;
   border: none;
   border-radius: 10px;
   padding: 8px 12px;
-  color: #44624A;
+  color: #44624a;
   font-size: 14px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.2s ease;
 }
 
 .nav-button:hover {
-  background-color: #B4C9B1;
+  background-color: #b4c9b1;
 }
 
 .big-plan {
-  background-color: #D8E3D3;
+  background-color: #d8e3d3;
   border-radius: 10px;
   padding: 20px;
   text-align: center;
