@@ -113,7 +113,7 @@ function Home() {
         <h1>nutri !!</h1>
         <p>
           A fitness web application designed to help you meet your personal <br />
-          fitness goals. Made by Jay + Nathan + Danny @ WebJam '24
+          fitness goals. Made by Jay + Nathan + Danny @ WebJam '24 ᕕ( ᐛ )ᕗ.
         </p>
 
         {/* Dialog with BiometricsForm */}
@@ -150,9 +150,9 @@ function Home() {
 
         {/* Tab Section */}
         <div className="tabs">
-          <Link to="/plan" className="tab">bodybuilding</Link>
-          <Link to="/plan" className="tab">weight loss</Link>
-          <Link to="/plan" className="tab">general health</Link>
+          <Link to="/plan" className="tab">Bodybuilding</Link>
+          <Link to="/plan" className="tab">Weight Loss</Link>
+          <Link to="/plan" className="tab">General Health</Link>
         </div>
 
         {/* Plan Content */}
