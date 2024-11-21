@@ -23,9 +23,9 @@ const Profile = () => {
                 </SelectTrigger>
                 <SelectContent>
                 <SelectGroup>
-                    <SelectItem value="Body Building">Body Building</SelectItem>
+                    <SelectItem value="Bodybuilding">Bodybuilding</SelectItem>
                     <SelectItem value="Weight Loss">Weight Loss</SelectItem>
-                    <SelectItem value="Health">Health</SelectItem>
+                    <SelectItem value="GeneralHealth">General Health</SelectItem>
                 </SelectGroup>
                 </SelectContent>
           </Select>

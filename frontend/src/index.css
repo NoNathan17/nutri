@@ -98,6 +98,12 @@ p {
   margin-bottom: 20px;
 }
 
+.middle-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
 .tab {
   background-color: #d8e3d3;
   border: none;

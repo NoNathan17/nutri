@@ -1,10 +1,13 @@
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
 import ThreeDLogo from '../components/ThreeDLogo';
 import {NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger} from "@/components/ui/navigation-menu";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"; 
 import { Button } from "@/components/ui/button"; 
 import BiometricsForm from '../components/BiometricsForm';  
 import { cn } from "@/lib/utils";
+import { Link, useNavigate } from 'react-router-dom';
+import { ACCESS_TOKEN } from '@/constants';
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
@@ -31,6 +34,28 @@ const ListItem = React.forwardRef<
 ListItem.displayName = "ListItem";
 
 function Home() {
+    const navigate = useNavigate();
+    
+    // Check if the user is logged in (you can adjust this logic based on your authentication setup)
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  
+    useEffect(() => {
+      const token = localStorage.getItem(ACCESS_TOKEN); 
+      
+      if (token) {
+        setIsLoggedIn(true); // User is logged in
+      } else {
+        setIsLoggedIn(false); // User is not logged in
+      }
+    }, []);
+
+    const handleStartClick = () => {
+      if (!isLoggedIn) {
+        // If not logged in, redirect to the login page
+        navigate('/login');
+      }
+    };
+
   return (
     <div className="app-container">
       <div className="navbar">
@@ -62,7 +87,7 @@ function Home() {
                   <ListItem href="/plan" title="Weight Loss" style={{ color: '#44624A' }}>
                     Structured guidance for healthy and sustainable weight loss.
                   </ListItem>
-                  <ListItem href="/plan" title="Health" style={{ color: '#44624A' }}>
+                  <ListItem href="/plan" title="General Health" style={{ color: '#44624A' }}>
                     Tips and routines to maintain overall well-being.
                   </ListItem>
                 </ul>
@@ -83,9 +108,10 @@ function Home() {
         </p>
 
         {/* Dialog with BiometricsForm */}
+        <div className="middle-tabs">
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="outline" className="start-button">
+            <Button variant="outline" className="start-button" onClick={handleStartClick}>
               start here !! ↩
             </Button>
           </DialogTrigger>
@@ -103,14 +129,21 @@ function Home() {
             <BiometricsForm />
           </DialogContent>
         </Dialog>
+        <Link to="/register">
+          <Button variant="outline" className="start-button">
+                new? sign up ↩
+          </Button>
+        </Link>
 
-        <p className="plans-intro">...or check out some of our plans</p>
+        </div>
+
+        <p className="plans-intro">our personalized plans include...</p>
 
         {/* Tab Section */}
         <div className="tabs">
           <button className="tab">bodybuilding</button>
           <button className="tab">weight loss</button>
-          <button className="tab">health</button>
+          <button className="tab">general health</button>
         </div>
 
         {/* Plan Content */}
@@ -128,9 +161,9 @@ function Home() {
             </p>
           </div>
           <div className="plan hover:scale-105 transition-transform duration-200">
-            <h3>✤ Health | 健康</h3>
+            <h3>✤ General Health | 健康</h3>
             <p>
-              Health focuses on holistic well-being, including improving cardiovascular fitness, flexibility, and mental health. This plan is great for anyone seeking to enhance their quality of life, reduce stress, and develop sustainable healthy habits.
+              General Health focuses on holistic well-being, including improving cardiovascular fitness, flexibility, and mental health. This plan is great for anyone seeking to enhance their quality of life, reduce stress, and develop sustainable healthy habits.
             </p>
           </div>
         </div>
