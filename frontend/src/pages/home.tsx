@@ -1,33 +1,12 @@
-import React from 'react'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import BiometricsForm from '../components/BiometricsForm'
+// Home.tsx
 
-import ThreeDLogo from './ThreeDLogo'
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  DialogFooter,
-} from "@/components/ui/dialog"
-
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";  
-import { Label } from "@/components/ui/label";  
-
-
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import ThreeDLogo from './ThreeDLogo';
+import {NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger} from "@/components/ui/navigation-menu";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"; 
+import { Button } from "@/components/ui/button"; 
+import BiometricsForm from '../components/BiometricsForm';  
 
 function Home() {
   return (
@@ -42,18 +21,17 @@ function Home() {
                 home
               </NavigationMenuLink>
             </NavigationMenuItem>
-            
+
             {/* Nutr Link */}
             <NavigationMenuItem>
               <NavigationMenuLink className="nav-button" href="/nutr">
                 nutr
               </NavigationMenuLink>
             </NavigationMenuItem>
-            
+
             {/* Plan Dropdown Link */}
             <NavigationMenuItem>
-              <NavigationMenuTrigger
-              className="nav-button">
+              <NavigationMenuTrigger className="nav-button">
                 plan
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -75,7 +53,7 @@ function Home() {
           fitness goals. Made by Jay + Nathan + Danny @ WebJam '24
         </p>
 
-        {/* Button to open Dialog with BiometricsForm */}
+        {/* Dialog with BiometricsForm */}
         <Dialog>
           <DialogTrigger asChild>
             <Button variant="outline" className="start-button">
@@ -91,45 +69,10 @@ function Home() {
                 Fill in your details below to get personalized recommendations.
               </DialogDescription>
             </DialogHeader>
-            <div className="grid gap-4 py-4">
-              {/* Replace this section with BiometricsForm fields or leave it as a placeholder */}
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="name" className="text-right">
-                  Name
-                </Label>
-                <Input
-                  id="name"
-                  className="col-span-3"
-                />
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="age" className="text-right">
-                  Age
-                </Label>
-                <Input
-                  id="age"
-                  className="col-span-3"
-                />
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="weight" className="text-right">
-                  Weight (lbs)
-                </Label>
-                <Input
-                  id="weight"
-                  className="col-span-3"
-                />
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="height" className="text-right">
-                  Height (ft/in)
-                </Label>
-                <Input
-                  id="height"
-                  className="col-span-3"
-                />
-              </div>
-            </div>
+
+            {/* Biometrics Form Component */}
+            <BiometricsForm />
+
             <DialogFooter>
               <Button type="submit">Save changes</Button>
             </DialogFooter>
