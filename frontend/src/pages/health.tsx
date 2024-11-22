@@ -26,14 +26,14 @@ const GeneralHealth = () => {
     <AccordionItem value="item-2" className="border-b-[1px] border-[#44624a]">
       <AccordionTrigger>Day 2</AccordionTrigger>
       <AccordionContent>
-      Pliometrics, Bodyweight Workouts, 30 Min walk<br />
+      Pliometrics, Bodyweight Workouts, 30 Min Walk<br />
       + Grilled Fish, Brown Rice, Steamed Vegetables
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-3" className="border-b-[1px] border-[#44624a]">
       <AccordionTrigger>Day 3</AccordionTrigger>
       <AccordionContent>
-      Strength Training - Bodyweight Exercises (squats, lunges)<br />
+      Strength Training - Bodyweight Exercises (Squats, Lunges)<br />
       + Turkey Sandwich, Whole Wheat Bread, Mixed Veggies
       </AccordionContent>
     </AccordionItem>
