@@ -9,6 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton"
+import RadialChart from "../components/radial-chart"
 
 const Profile = () => {
   const [bmi, setBmi] = useState(null);
@@ -84,6 +85,7 @@ const Profile = () => {
           </>
         )}
       </div>
+      <RadialChart />
   </div>
 );
 };

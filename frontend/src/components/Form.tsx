@@ -17,27 +17,23 @@ import { Label } from "@/components/ui/label";
 
 interface FormProps {
   route: string;
-  method: "login" | "register";
 }
 
-const Form: React.FC<FormProps> = ({ route, method }) => {
+const Form: React.FC<FormProps> = ({ route }) => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [currentRoute, setCurrentRoute] = useState<string>(route); 
   const navigate = useNavigate();
 
-  const name = method === "login" ? "Login" : "Register";
-
   const handleTabChange = (value: string) => {
-    console.log(value)
-    if (value == "account") {
-      route="/api/token/";
-      method="login"
+    console.log(value);
+    if (value === "account") {
+      setCurrentRoute("/api/token/"); 
     } else {
-        route="/api/user/register/";
-        method="register"
+      setCurrentRoute("/api/user/register/"); 
     }
-    console.log(route,method)
+    console.log(currentRoute);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -45,18 +41,15 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
     e.preventDefault();
 
     try {
-      console.log(method, route)
       console.log({ username, password });
-      const res = await api.post(route, { username, password });
+      const res = await api.post(currentRoute, { username, password }); 
       console.log("Response:", res.data);
-      if (method === "login") {
-        localStorage.setItem(ACCESS_TOKEN, res.data.access);
-        localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-        localStorage.setItem('name',  username);
-        navigate("/");
-      } else {
-        navigate("/");
-      }
+
+      localStorage.setItem(ACCESS_TOKEN, res.data.access);
+      localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+      localStorage.setItem("name", username);
+      navigate("/");
+
     } catch (error) {
       console.log(error);
       alert("Error! Please try again.");
