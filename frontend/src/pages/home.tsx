@@ -68,14 +68,14 @@ function Home() {
               <NavigationMenuTrigger className="nav-button">plan</NavigationMenuTrigger>
               <NavigationMenuContent className="dropdown-menu">
                 <ul className="grid auto gap-3 p-4">
-                  <ListItem href="/bodybuilding" title="Bodybuilding" style={{ color: '#44624A' }}>
-                    A plan tailored to build muscle and strength effectively.
+                  <ListItem href="/bodybuilding" title="bodybuilding" style={{ color: '#44624A', textAlign: 'left' }}>
+                    a plan tailored to build muscle and strength effectively
                   </ListItem>
-                  <ListItem href="/weightloss" title="Weight Loss" style={{ color: '#44624A' }}>
-                    Structured guidance for healthy and sustainable weight loss.
+                  <ListItem href="/weightloss" title="weight loss" style={{ color: '#44624A', textAlign: 'left' }}>
+                    structured guidance for healthy and sustainable weight loss
                   </ListItem>
-                  <ListItem href="/health" title="General Health" style={{ color: '#44624A' }}>
-                    Tips and routines to maintain overall well-being.
+                  <ListItem href="/health" title="general health" style={{ color: '#44624A', textAlign: 'left' }}>
+                    tips and routines to maintain overall well-being
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
@@ -94,7 +94,7 @@ function Home() {
                 home
               </NavigationMenuLink>
             </NavigationMenuItem>
-            
+
             {/* Logout Link */}
             {isLoggedIn && (
             <NavigationMenuItem>
@@ -150,27 +150,27 @@ function Home() {
 
         {/* Tab Section */}
         <div className="tabs">
-          <Link to="/bodybuilding" className="tab">Bodybuilding</Link>
-          <Link to="/weightloss" className="tab">Weight Loss</Link>
-          <Link to="/health" className="tab">General Health</Link>
+          <Link to="/bodybuilding" className="tab">bodybuilding</Link>
+          <Link to="/weightloss" className="tab">weight loss</Link>
+          <Link to="/health" className="tab">general health</Link>
         </div>
 
         {/* Plan Content */}
         <div className="plan-container">
           <div className="plan hover:scale-105 transition-transform duration-200">
-            <h3>✤ Bodybuilding | 健美</h3>
+            <h3>✤ bodybuilding | 健美</h3>
             <p>
               Bodybuilding focuses on building muscle mass and strength through targeted weight training. It helps sculpt your body, improve metabolism, and increase overall vitality. Perfect for those looking to gain muscle while reducing body fat.
             </p>
           </div>
           <div className="plan hover:scale-105 transition-transform duration-200">
-            <h3>✤ Weight Loss | 减肥</h3>
+            <h3>✤ weight loss | 减肥</h3>
             <p>
               Weight loss involves a combination of calorie management, cardiovascular exercise, and strength training. It's designed to reduce body fat and improve fitness levels, leading to better health, more energy, and an overall improved sense of well-being.
             </p>
           </div>
           <div className="plan hover:scale-105 transition-transform duration-200">
-            <h3>✤ General Health | 健康</h3>
+            <h3>✤ general health | 健康</h3>
             <p>
               General Health focuses on holistic well-being, including improving cardiovascular fitness, flexibility, and mental health. This plan is great for anyone seeking to enhance their quality of life, reduce stress, and develop sustainable healthy habits.
             </p>
