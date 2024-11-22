@@ -15,27 +15,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-interface FormProps {
-  route: string;
-  method: "login" | "register";
-}
-
-const Form: React.FC<FormProps> = ({ route, method }) => {
+const Form: React.FC = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [route, setRoute] = useState<string>("/api/token/"); // Default route for login
   const navigate = useNavigate();
 
-  const name = method === "login" ? "Login" : "Register";
-
   const handleTabChange = (value: string) => {
-    console.log(value)
     if (value === "account") {
-      route="/api/token/";
-    } else {
-      route="/api/user/register/";
+      setRoute("/api/token/"); // Set route for login
+    } else if (value === "register") {
+      setRoute("/api/user/register/"); // Set route for register
     }
-    console.log(route)
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -44,19 +36,24 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
 
     try {
       console.log({ username, password });
-      console.log(route)
+      console.log("Using route:", route);
       const res = await api.post(route, { username, password });
       console.log("Response:", res.data);
-      if (method === "login") {
+
+      if (route === "/api/token/") {
+        // Login
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-        localStorage.setItem('name',  username);
+        localStorage.setItem("name", username);
         navigate("/");
+        window.location.reload();
       } else {
-        navigate("/");
+        // Register
+        window.location.reload();
+        setRoute("/api/token/");
       }
     } catch (error) {
-      console.log(error);
+      console.error("Error:", error);
       alert("Error! Please try again.");
     } finally {
       setLoading(false);
@@ -68,7 +65,7 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
       <Tabs
         defaultValue="account"
         className="w-[400px]"
-        onValueChange={handleTabChange}
+        onValueChange={handleTabChange} // Listen for tab changes
       >
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="account">Sign In</TabsTrigger>
