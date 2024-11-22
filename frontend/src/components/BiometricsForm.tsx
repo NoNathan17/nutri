@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Input } from "@/components/ui/input";
@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ACCESS_TOKEN } from '@/constants';
 
 const BiometricsForm = () => {
   const [formData, setFormData] = useState({
@@ -23,10 +24,19 @@ const BiometricsForm = () => {
     sex: '',
   });
 
-  const [bmiData, setBmiData] = useState<{ bmi: number; maintenanceCalories: number } | null>(null);
-  const [showDialog, setShowDialog] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate()
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  
+    useEffect(() => {
+      const token = localStorage.getItem(ACCESS_TOKEN); 
+      
+      if (token) {
+        setIsLoggedIn(true); // User is logged in
+      } else {
+        setIsLoggedIn(false); // User is not logged in
+      }
+    }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -80,25 +90,27 @@ const BiometricsForm = () => {
   
     // Prepare the data to be sent to the backend
     const biometricsData = { name, age, weight, height, sex, bmi, maintenance_calories: maintenanceCalories };
-  
-    try {
-      const response = await axios.post(
-        'http://localhost:8000/api/biometrics/', 
-        biometricsData,  // Send biometric data
-      );
-      console.log('Biometrics submitted:', response.data);
-  
-      // Optionally, store the calculated values in local storage or state
-      localStorage.setItem('biometricsData', JSON.stringify({ bmi, maintenanceCalories }));
-      navigate("/profile")
-  
-      // Show the dialog with the submitted data
-      setBmiData({ bmi, maintenanceCalories });
-      setShowDialog(true);
-    } catch (error) {
-      console.error('Error submitting biometrics:', error);
-      setError("Failed to submit biometrics. Please try again.");
-    }
+    if (isLoggedIn) {
+      try {
+        const response = await axios.post(
+          'http://localhost:8000/api/biometrics/', 
+          biometricsData,  // Send biometric data
+        );
+        console.log('Biometrics submitted:', response.data);
+    
+        // Optionally, store the calculated values in local storage or state
+        localStorage.setItem('biometricsData', JSON.stringify({ bmi, maintenanceCalories }));
+        localStorage.setItem('username',  name);
+        navigate("/profile")
+        
+      } catch (error) {
+        console.error('Error submitting biometrics:', error);
+        setError("Failed to submit biometrics. Please try again.");
+      }
+  } else {
+    navigate('/login')
+    alert('Please login first')
+  }
   };
   
   return (
@@ -178,20 +190,6 @@ const BiometricsForm = () => {
             <Button type="submit">Get Recommendations</Button>
           </DialogFooter>
       </form>
-
-      {showDialog && bmiData && (
-        <div className="mt-4 p-4 bg-gray-100 rounded shadow">
-          <h3 className="text-lg font-bold">Results</h3>
-          <p>BMI: {bmiData.bmi}</p>
-          <p>Maintenance Calories: {bmiData.maintenanceCalories}</p>
-          <button
-            onClick={() => setShowDialog(false)}
-            className="mt-2 bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600"
-          >
-            Close
-          </button>
-        </div>
-      )}
     </>
   );
 };
