@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     return (
@@ -7,9 +7,14 @@ const Footer = () => {
          <span>copyright © 2024 | all rights reserved</span>
          <Link to="https://github.com/NoNathan17/nutri">
             <div className="text-black right-0">
-            <FaGithub size={30} />
+                <FaGithub size={30} />
             </div>
          </Link>
+         <Link to="https://linkedin.com/in/nathan-ong17">
+         <div className="text-black right-0">
+            <FaLinkedin size={30} />
+        </div>
+        </Link>
         </footer>
     );
   };

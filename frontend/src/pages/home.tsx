@@ -33,7 +33,9 @@ function Home() {
       {/* Main Content */}
       <div className="app-container">
         <ThreeDLogo />
-        <p>welcome back, { localStorage.getItem('name') }</p>
+        {isLoggedIn && (
+          <p>welcome back, { localStorage.getItem('name') }</p>
+        )}
         <h1>nutri !!</h1>
         <p>
           A fitness web application designed to help you meet your personal <br />
