@@ -1,6 +1,6 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
+import { TrendingUp, TrendingDown, TrendingUpDown } from "lucide-react";
 import {
   Label,
   PolarGrid,
@@ -94,17 +94,17 @@ const RadialChart = ({ bmi }: { bmi: number }) => {
         )}
         {bmi >= 18.5 && bmi <= 24.9 && (
           <>
-            Healthy Range <TrendingUp className="h-4 w-4" />
+            Healthy Range <TrendingUpDown className="h-4 w-4" />
           </>
         )}
         {bmi >= 25 && bmi <= 29.9 && (
           <>
-            Overweight <TrendingUp className="h-4 w-4" />
+            Overweight <TrendingDown className="h-4 w-4" />
           </>
         )}
         {bmi >= 30 && (
           <>
-            Obese <TrendingUp className="h-4 w-4" />
+            Obese <TrendingDown className="h-4 w-4" />
           </>
         )}
       </div>
