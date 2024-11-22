@@ -47,7 +47,7 @@ const Profile = () => {
       }
     };
   return (
-    <div className="form-container flex flex-col space-y-3">
+    <div className="form-container flex flex-col space-y-3" style={{ marginTop: '150px', backgroundColor: '#d8e3d3', width: '450px'}}>
       <div>
         {/* Conditionally render skeleton loader or actual data */}
         {loading ? (
@@ -61,12 +61,22 @@ const Profile = () => {
           </div>
         ) : (
           <>
-            <h1 className="form-name">{ name }</h1>
-            <h2>BMI: {bmi ? bmi : "No Data Available"}</h2>
-            <h2>Maintenance Calories: {maintenanceCalories ? maintenanceCalories : "No Data Available"}</h2>
-            <div>
+            <h1 style={{ fontSize: '18px', marginTop: '15px'}}>{ name }'s Plan</h1>
+            <p style={{fontSize: '12px' }}>BMI: {bmi ? bmi : "No Data Available"}</p>
+            <p style={{fontSize: '12px', marginBottom: '30px'}}>Maintenance Calories: {maintenanceCalories ? maintenanceCalories : "No Data Available"}</p>
+            <RadialChart />
+            <div
+              style={{
+                marginTop: '30px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '15px'
+              }}
+            >
               <Select onValueChange={(value) => setSelectedPlan(value)}>
-                <SelectTrigger className="w-[280px]" style={{ backgroundColor: "#98b496" }}>
+                <SelectTrigger className="w-[280px]" style={{ color: "#44624a", borderColor: '#44624a'}}>
                   <SelectValue placeholder="Select Fitness Plan" />
                 </SelectTrigger>
                 <SelectContent className="select-content">
@@ -77,14 +87,13 @@ const Profile = () => {
                   </SelectGroup>
                 </SelectContent>
               </Select>
-              <button className="redirect" onClick={redirection}>
+              <button className="redirect" onClick={redirection} style={{ color: "#44624a", borderColor: '#44624a', backgroundColor: '#d8e3d3', borderWidth: '1px'}}>
                 Submit
               </button>
             </div>
           </>
         )}
       </div>
-      <RadialChart />
   </div>
 );
 };
