@@ -109,7 +109,7 @@ const BiometricsForm = () => {
       }
   } else {
     navigate('/login')
-    alert('Please login first')
+    alert('Please login first!')
   }
   };
   

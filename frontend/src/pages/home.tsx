@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import ThreeDLogo from '../components/ThreeDLogo';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"; 
 import { Button } from "@/components/ui/button"; 
-import BiometricsForm from '../components/BiometricsForm';
+import BiometricFormDialog from '../components/BiometricFormDialog';
 import { Link, useNavigate } from 'react-router-dom';
 import { ACCESS_TOKEN } from '@/constants';
+import BiometricsDialog from '@/components/BiometricFormDialog';
 
 
 function Home() {
@@ -51,26 +52,8 @@ function Home() {
             </Button>
           </Link>
         )}
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button variant="outline" className="start-button" onClick={handleStartClick}>
-              import biometrics !
-            </Button>
-          </DialogTrigger>
-          
-          {/* Dialog Content */}
-          <DialogContent className="sm:max-w-[425px]">
-            <DialogHeader>
-              <DialogTitle>Enter Your Biometrics</DialogTitle>
-              <DialogDescription>
-                Fill in your details below to get personalized recommendations.
-              </DialogDescription>
-            </DialogHeader>
+        <BiometricFormDialog triggerButtonText="import biometrics ↺"/>
 
-            {/* Biometrics Form Component */}
-            <BiometricsForm />
-          </DialogContent>
-        </Dialog>
         {isLoggedIn && (
         <Link to="/profile">
           <Button variant="outline" className="start-button" onClick={handleStartClick}>
@@ -83,11 +66,21 @@ function Home() {
         <p className="plans-intro">... our personalized plans include</p>
 
         {/* Tab Section */}
+        {isLoggedIn && (
         <div className="tabs">
           <Link to="/bodybuilding" className="tab">bodybuilding</Link>
           <Link to="/weightloss" className="tab">weight loss</Link>
           <Link to="/health" className="tab">general health</Link>
         </div>
+        )}
+
+        {!isLoggedIn && (
+          <div className="tabs">
+              <Link to="/" className="tab">bodybuilding</Link>
+              <Link to="/" className="tab">weight loss</Link>
+              <Link to="/" className="tab">general health</Link>
+          </div>
+          )}
 
         {/* Plan Content */}
         <div className="plan-container">

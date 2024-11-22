@@ -1,5 +1,3 @@
-import React from "react";
-
 const GeneralHealth = () => {
   const workoutPlan = [
     "Day 1: Light Cardio - 30 minutes brisk walk or cycling",
