@@ -9,6 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton"
+import RadialChart from "../components/radial-chart"
 
 const Profile = () => {
   const [bmi, setBmi] = useState(null);
@@ -19,6 +20,7 @@ const Profile = () => {
 
   useEffect(() => {
     // Fetch user profile data from the backend API
+    console.log(name)
     axios
       .get(`http://127.0.0.1:8000/api/biometrics/?name=${name}`)  
       .then((response) => {
@@ -60,7 +62,7 @@ const Profile = () => {
           </div>
         ) : (
           <>
-            <h1 className="form-name">Your Profile</h1>
+            <h1 className="form-name">{ name }</h1>
             <h2>BMI: {bmi ? bmi : "No Data Available"}</h2>
             <h2>Maintenance Calories: {maintenanceCalories ? maintenanceCalories : "No Data Available"}</h2>
             <div>
@@ -83,6 +85,7 @@ const Profile = () => {
           </>
         )}
       </div>
+      <RadialChart />
   </div>
 );
 };
