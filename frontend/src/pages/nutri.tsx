@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -27,6 +27,13 @@ export function Nutri() {
     { date: "11/23/24", calories: "231", food: "Croissant", cost: "$4.79" }
   ]);
 
+  useEffect(() => {
+    const storedMeals = localStorage.getItem("meals");
+    if (storedMeals) {
+      setMeals(JSON.parse(storedMeals));
+    }
+  }, []);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
@@ -54,9 +61,10 @@ export function Nutri() {
     try {
       const response = await axios.post('http://localhost:8000/api/nutrition/', mealData);
       console.log('Meal data submitted:', response.data);
-      localStorage.setItem('food', food);
-      // Update the meals state by adding the new meal
-      setMeals((prevMeals) => [...prevMeals, mealData]);
+
+      const updatedMeals = [...meals, mealData];
+      localStorage.setItem('meals', JSON.stringify(updatedMeals))
+      window.location.reload()
       handleClear();
     } catch (error) {
       console.error('Error submitting meal', error);
