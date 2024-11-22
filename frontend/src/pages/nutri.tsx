@@ -157,11 +157,11 @@ export function Nutri() {
                       mode="single"
                       selected={date}
                       onSelect={(selectedDate) => {
-                        if (selectedDate) { // Ensure selectedDate is not undefined
+                        if (selectedDate) { 
                           setDate(selectedDate);
                           setFormData((prevData) => ({
                             ...prevData,
-                            date: format(selectedDate, "MM/dd/yy"), // Safely format the date
+                            date: format(selectedDate, "MM/dd/yy"), 
                           }));
                         }
                       }}
