@@ -58,7 +58,9 @@ const Profile = () => {
               <Skeleton className="h-4 w-[250px]" />
               <Skeleton className="h-4 w-[200px]" />
             </div>
+            <p style={{fontSize: '12px', marginBottom: '30px'}}>No Data Submitted</p>
           </div>
+          
         ) : (
           <>
             <h1 style={{ fontSize: '18px', marginTop: '15px'}}>{ name }'s Plan</h1>
