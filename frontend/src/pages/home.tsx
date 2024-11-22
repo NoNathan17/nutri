@@ -63,34 +63,11 @@ function Home() {
         {/* ShadCN Navigation Menu */}
         <NavigationMenu>
           <NavigationMenuList>
-            {/* Home Link */}
-            <NavigationMenuItem>
-              <NavigationMenuLink className="nav-button" href="/">
-                home
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            {/* Nutr Link */}
-            <NavigationMenuItem>
-              <NavigationMenuLink className="nav-button" href="/nutr">
-                nutri !!
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            {/* Logout Link */}
-            {isLoggedIn && (
-            <NavigationMenuItem>
-              <NavigationMenuLink className="nav-button" href="/logout">
-                logout
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            )}
-
             {/* Plan Dropdown Link */}
             <NavigationMenuItem>
               <NavigationMenuTrigger className="nav-button">plan</NavigationMenuTrigger>
               <NavigationMenuContent className="dropdown-menu">
-                <ul className="grid w-full gap-3 p-4">
+                <ul className="grid auto gap-3 p-4">
                   <ListItem href="/bodybuilding" title="Bodybuilding" style={{ color: '#44624A' }}>
                     A plan tailored to build muscle and strength effectively.
                   </ListItem>
@@ -103,6 +80,29 @@ function Home() {
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
+
+            {/* Nutr Link */}
+            <NavigationMenuItem>
+              <NavigationMenuLink className="nav-button" href="/nutr">
+                nutrition
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            {/* Home Link */}
+            <NavigationMenuItem>
+              <NavigationMenuLink className="nav-button" href="/">
+                home
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            
+            {/* Logout Link */}
+            {isLoggedIn && (
+            <NavigationMenuItem>
+              <NavigationMenuLink className="nav-button" href="/logout">
+                logout
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            )}
           </NavigationMenuList>
         </NavigationMenu>
       </div>
@@ -150,9 +150,9 @@ function Home() {
 
         {/* Tab Section */}
         <div className="tabs">
-          <Link to="/plan" className="tab">Bodybuilding</Link>
-          <Link to="/plan" className="tab">Weight Loss</Link>
-          <Link to="/plan" className="tab">General Health</Link>
+          <Link to="/bodybuilding" className="tab">Bodybuilding</Link>
+          <Link to="/weightloss" className="tab">Weight Loss</Link>
+          <Link to="/health" className="tab">General Health</Link>
         </div>
 
         {/* Plan Content */}
