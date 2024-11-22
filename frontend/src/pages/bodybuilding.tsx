@@ -1,45 +1,65 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
 const Bodybuilding = () => {
-  const workoutPlan = [
-    "Day 1: Chest and Triceps - Bench Press, Dumbbell Flys, Tricep Dips",
-    "Day 2: Back and Biceps - Pull-Ups, Barbell Rows, Bicep Curls",
-    "Day 3: Shoulders and Abs - Shoulder Press, Lateral Raises, Planks",
-    "Day 4: Rest",
-    "Day 5: Legs - Squats, Lunges, Leg Press",
-    "Day 6: Full Body - Deadlifts, Push-Ups, Kettlebell Swings",
-    "Day 7: Rest"
-  ];
-
-  const mealPlan = [
-    "Day 1: Grilled Chicken, Quinoa, Broccoli",
-    "Day 2: Salmon, Brown Rice, Asparagus",
-    "Day 3: Steak, Sweet Potatoes, Spinach",
-    "Day 4: Rest Day - Light Salad, Avocado, Nuts",
-    "Day 5: Turkey Breast, Green Beans, Rice",
-    "Day 6: Grilled Shrimp, Couscous, Kale",
-    "Day 7: Rest Day - Protein Shake, Mixed Fruit"
-  ];
-
   return (
-    <div className="form-container flex flex-col space-y-5">
-      <h1>Bodybuilding Plan</h1>
-
-      <div>
-        <h2>Weekly Workout Plan</h2>
-        <ul className="list-disc pl-5">
-          {workoutPlan.map((workout, index) => (
-            <li key={index}>{workout}</li>
-          ))}
-        </ul>
-      </div>
-
-      <div>
-        <h2>Weekly Meal Plan</h2>
-        <ul className="list-disc pl-5">
-          {mealPlan.map((meal, index) => (
-            <li key={index}>{meal}</li>
-          ))}
-        </ul>
-      </div>
+    <div style={{ marginTop: '150px', width: '500px'}} className="form-container flex flex-col space-y-5">
+      <h1 style={{ fontSize: '18px' }}>bodybuilding !!</h1>
+      <Accordion type="single" collapsible className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger className="flex justify-center w-full">monday</AccordionTrigger>
+        <AccordionContent>
+          Chest and Triceps - Bench Press, Dumbbell Flys, Tricep Dips<br />
+          + Grilled Chicken, Quinoa, Broccoli
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>tuesday</AccordionTrigger>
+        <AccordionContent>
+          Back and Biceps - Pull-Ups, Barbell Rows, Bicep Curls<br />
+          + Salmon, Brown Rice, Asparagus
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>wednesday</AccordionTrigger>
+        <AccordionContent>
+          Shoulders and Abs - Shoulder Press, Lateral Raises, Planks<br />
+          + Steak, Sweet Potatoes, Spinach
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-4">
+        <AccordionTrigger>thursday</AccordionTrigger>
+        <AccordionContent>
+          Rest day !<br />
+          + Light Salad, Avocado, Nuts
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-5">
+        <AccordionTrigger>friday</AccordionTrigger>
+        <AccordionContent>
+          Legs - Squats, Lunges, Leg Press <br />
+          + Turkey Breast, Green Beans, Rice
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-6">
+        <AccordionTrigger>saturday</AccordionTrigger>
+        <AccordionContent>
+          Full Body - Deadlifts, Push-Ups, Kettlebell Swings <br />
+          + Grilled Shrimp, Couscous, Kale
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-7">
+        <AccordionTrigger>sunday</AccordionTrigger>
+        <AccordionContent>
+          Rest day ! <br />
+          + Protein Shake, Mixed Fruit
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
     </div>
   );
 };
