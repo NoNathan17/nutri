@@ -34,23 +34,22 @@ const WeightLoss = () => {
     <div style={{ marginTop: '150px', width: '1000px', height: 'auto', backgroundColor: '#d8e3d3'}} className="form-container flex flex-col space-y-5">
     <h1 style={{ fontSize: '18px', marginTop: '15px' }}>Weight Loss Plan</h1>
       <p style={{fontSize: '12px', marginTop: '0px' }}>
-        Structured guidance for healthy and sustainable weight loss!
+        Structured guidance for healthy and sustainable weight loss!<br />
+        BMI: {bmi ? bmi : "No Data Available"} | Maintenance Calories: {maintenanceCalories ? maintenanceCalories : "No Data Available"}
       </p>
     <div>
       {loading ? (<div></div>
           
         ) : (
-            <div className="mt-4 text-[#44624a]">
-              <h1 style={{ fontSize: '30px' }}>{ name }</h1>
-              <h2>BMI: {bmi ? bmi : "No Data Available"}</h2>
-              <h2>Given your maintenance calorie count of {maintenanceCalories ? maintenanceCalories : "No Data Available"}</h2>
+            <div className="mt-4 text-[#44624a]" style={{fontSize: '12px', marginTop: '0px' }}>
+              <hr style={{ borderBottom: "2px solid #44824a" }} />
               <Table
   style={{
-    marginTop: "25px",
+    marginTop: "10px",
+    marginBottom: "10px",
     width: "1000px",
     backgroundColor: "#d8e3d3",
     borderRadius: "10px",
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
   }}
 >
   <TableHeader>
@@ -61,7 +60,7 @@ const WeightLoss = () => {
           textAlign: "center",
         }}
       >
-        Calories Consumed/Day
+        Calories Consumed / Day
       </TableHead>
       <TableHead
         style={{
@@ -69,7 +68,7 @@ const WeightLoss = () => {
           textAlign: "center",
         }}
       >
-        Lbs Lost/Week
+        Lbs Lost / Week
       </TableHead>
     </TableRow>
   </TableHeader>
@@ -112,58 +111,59 @@ const WeightLoss = () => {
     </TableRow>
   </TableBody>
 </Table>
-
+<br/>
+<hr style={{ borderBottom: "2px solid #44824a" }} />
             </div>
         )}
 
     </div>
     <Accordion type="single" collapsible className="w-full text-[#44624a]">
     <AccordionItem value="item-1" className="border-b-[1px] border-[#44624a]">
-      <AccordionTrigger>Day 1</AccordionTrigger>
+      <AccordionTrigger>Monday</AccordionTrigger>
       <AccordionContent>
       Cardio - 30 minutes on treadmill, 20 minutes HIIT<br />
       + Grilled Chicken Salad, Quinoa, Avocado
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-2" className="border-b-[1px] border-[#44624a]">
-      <AccordionTrigger>Day 2</AccordionTrigger>
+      <AccordionTrigger>Tuesday</AccordionTrigger>
       <AccordionContent>
       Full Body Strength - Squats, Push-Ups, Dumbbell Rows<br />
       + Grilled Salmon, Brown Rice, Steamed Veggies
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-3" className="border-b-[1px] border-[#44624a]">
-      <AccordionTrigger>Day 3</AccordionTrigger>
+      <AccordionTrigger>Wednesday</AccordionTrigger>
       <AccordionContent>
       Cardio - Cycling, 30 minutes<br />
       + Lean Turkey, Sweet Potato, Roasted Brussel Sprouts
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-4" className="border-b-[1px] border-[#44624a]">
-      <AccordionTrigger>Day 4</AccordionTrigger>
+      <AccordionTrigger>Thursday</AccordionTrigger>
       <AccordionContent>
-        Rest day<br />
+        Rest day !<br />
       + Salad with Mixed Greens, Nuts, Berries
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-5" className="border-b-[1px] border-[#44624a]">
-      <AccordionTrigger>Day 5</AccordionTrigger>
+      <AccordionTrigger>Friday</AccordionTrigger>
       <AccordionContent>
       Lower Body - Lunges, Leg Press, Deadlifts <br />
       + Baked Chicken, Cauliflower Rice, Spinach
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-6" className="border-b-[1px] border-[#44624a]">
-      <AccordionTrigger>Day 6</AccordionTrigger>
+      <AccordionTrigger>Saturday</AccordionTrigger>
       <AccordionContent>
       Upper Body - Push-Ups, Pull-Ups, Bicep Curls <br />
         + Grilled Shrimp, Zucchini Noodles, Garlic
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-7" className="border-b-[1px] border-[#44624a]">
-      <AccordionTrigger>Day 7</AccordionTrigger>
+      <AccordionTrigger>Sunday</AccordionTrigger>
       <AccordionContent>
-      Rest day<br />
+      Rest day !<br />
       + Protein Shake, Almonds, Banana
       </AccordionContent>
     </AccordionItem>
