@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom'
 import axios from "axios";
 import {
   Select,
@@ -15,6 +16,7 @@ const Profile = () => {
   const [bmi, setBmi] = useState(null);
   const [maintenanceCalories, setMaintenanceCalories] = useState(null);
   const [loading, setLoading] = useState<boolean>(true); // State to manage loading status
+  const navigate = useNavigate()
 
   const name = localStorage.getItem('name');
 
@@ -30,6 +32,8 @@ const Profile = () => {
         }, 1000);
       })
       .catch((error) => {
+        alert('No Data available! Redirecting to Home Page.')
+        navigate('/')
         console.error("There was an error fetching the biometrics data:", error);
       });
   }, []);
@@ -58,7 +62,6 @@ const Profile = () => {
               <Skeleton className="h-4 w-[250px]" />
               <Skeleton className="h-4 w-[200px]" />
             </div>
-            <p style={{fontSize: '12px', marginBottom: '30px'}}>No Data Submitted</p>
           </div>
           
         ) : (
