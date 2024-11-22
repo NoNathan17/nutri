@@ -18,7 +18,7 @@ const WeightLoss = () => {
     <AccordionItem value="item-1" className="border-b-[1px] border-[#44624a]">
       <AccordionTrigger>Day 1</AccordionTrigger>
       <AccordionContent>
-      Cardio - 30 minutes on treadmill, 20 minutes HIIT<br />
+      Cardio - 30 Min Treadmill, 20 Min HIIT<br />
       + Grilled Chicken Salad, Quinoa, Avocado
       </AccordionContent>
     </AccordionItem>
@@ -32,15 +32,15 @@ const WeightLoss = () => {
     <AccordionItem value="item-3" className="border-b-[1px] border-[#44624a]">
       <AccordionTrigger>Day 3</AccordionTrigger>
       <AccordionContent>
-      Cardio - Cycling, 30 minutes<br />
+      Cardio - Cycling, 30 Min<br />
       + Lean Turkey, Sweet Potato, Roasted Brussel Sprouts
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-4" className="border-b-[1px] border-[#44624a]">
       <AccordionTrigger>Day 4</AccordionTrigger>
       <AccordionContent>
-        Rest day<br />
-      + Salad with Mixed Greens, Nuts, Berries
+        Rest day !<br />
+      + Salad w/ Mixed Greens, Nuts, Berries
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-5" className="border-b-[1px] border-[#44624a]">
@@ -60,7 +60,7 @@ const WeightLoss = () => {
     <AccordionItem value="item-7" className="border-b-[1px] border-[#44624a]">
       <AccordionTrigger>Day 7</AccordionTrigger>
       <AccordionContent>
-      Rest day<br />
+      Rest day !<br />
       + Protein Shake, Almonds, Banana
       </AccordionContent>
     </AccordionItem>

@@ -12,7 +12,7 @@ const GeneralHealth = () => {
     <h1 style={{ fontSize: '18px' }}>General Health Plan</h1>
     <div className="mt-4 text-[#44624a]">
       <p style={{fontSize: '12px' }}>
-        Structured guidance for sustaining healthy practices.
+        Tips and routines to maintain overall well-being.
       </p>
     </div>
     <Accordion type="single" collapsible className="w-full text-[#44624a]">
@@ -33,36 +33,36 @@ const GeneralHealth = () => {
     <AccordionItem value="item-3" className="border-b-[1px] border-[#44624a]">
       <AccordionTrigger>Day 3</AccordionTrigger>
       <AccordionContent>
-      Strength Training - Bodyweight exercises (squats, lunges)<br />
+      Strength Training - Bodyweight Exercises (squats, lunges)<br />
       + Turkey Sandwich, Whole Wheat Bread, Mixed Veggies
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-4" className="border-b-[1px] border-[#44624a]">
       <AccordionTrigger>Day 4</AccordionTrigger>
       <AccordionContent>
-        Rest day<br />
-      + Smoothie with spinach, banana, almond milk
+        Rest day!<br />
+      + Smoothie w/ Spinach, Banana, Almond Milk
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-5" className="border-b-[1px] border-[#44624a]">
       <AccordionTrigger>Day 5</AccordionTrigger>
       <AccordionContent>
-      Cardio - Swimming or cycling for 45 minutes <br />
+      Cardio - Swimming / Cycling 45 Min <br />
       + Grilled Chicken, Quinoa, Roasted Vegetables
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-6" className="border-b-[1px] border-[#44624a]">
       <AccordionTrigger>Day 6</AccordionTrigger>
       <AccordionContent>
-      Full Body Strength - Bodyweight exercises + Dumbbells <br />
+      Full Body Strength - Bodyweight Exercises + Dumbbells <br />
         + Lentil Soup, Whole Grain Bread, Salad
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-7" className="border-b-[1px] border-[#44624a]">
       <AccordionTrigger>Day 7</AccordionTrigger>
       <AccordionContent>
-      Rest day<br />
-      + Rest Day - Greek Yogurt with Berries and Nuts
+      Rest day !<br />
+      + Greek Yogurt w/ Berries, Nuts
       </AccordionContent>
     </AccordionItem>
   </Accordion>
