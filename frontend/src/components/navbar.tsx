@@ -62,7 +62,7 @@ const Navbar = () => {
 
           {/* Nutrition Link */}
           <NavigationMenuItem>
-            <NavigationMenuLink className="nav-button" href="/nutr">
+            <NavigationMenuLink className="nav-button" href="/nutri">
               nutrition
             </NavigationMenuLink>
           </NavigationMenuItem>

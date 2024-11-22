@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import ThreeDLogo from '../components/ThreeDLogo';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"; 
@@ -55,7 +54,7 @@ function Home() {
         <Dialog>
           <DialogTrigger asChild>
             <Button variant="outline" className="start-button" onClick={handleStartClick}>
-              import biometrics ! 
+              import biometrics !
             </Button>
           </DialogTrigger>
           
