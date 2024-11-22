@@ -36,10 +36,6 @@ const Form: React.FC = () => {
 
     try {
       console.log({ username, password });
-<<<<<<< HEAD
-      console.log("Using route:", route);
-=======
->>>>>>> c472d418688044a771823a42c6f20eab888c378a
       const res = await api.post(route, { username, password });
       console.log("Response:", res.data);
 
@@ -49,15 +45,9 @@ const Form: React.FC = () => {
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
         localStorage.setItem("name", username);
         navigate("/");
-        window.location.reload();
       } else {
-<<<<<<< HEAD
-        // Register
-        window.location.reload();
-        setRoute("/api/token/");
-=======
         navigate("/login");
->>>>>>> c472d418688044a771823a42c6f20eab888c378a
+        window.location.reload();
       }
     } catch (error) {
       console.error("Error:", error);
