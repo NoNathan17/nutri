@@ -44,7 +44,6 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
 
     try {
       console.log({ username, password });
-      console.log(route)
       const res = await api.post(route, { username, password });
       console.log("Response:", res.data);
       if (method === "login") {
@@ -53,7 +52,7 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
         localStorage.setItem('name',  username);
         navigate("/");
       } else {
-        navigate("/");
+        navigate("/login");
       }
     } catch (error) {
       console.log(error);
