@@ -2,12 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Card,
   CardContent,
@@ -22,7 +17,7 @@ import { Label } from "@/components/ui/label";
 
 interface FormProps {
   route: string;
-  method: "login" | "register"; 
+  method: "login" | "register";
 }
 
 const Form: React.FC<FormProps> = ({ route, method }) => {
@@ -50,7 +45,7 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
     try {
       console.log({ username, password });
       const res = await api.post(route, { username, password });
-      console.log('Response:', res.data);
+      console.log("Response:", res.data);
       if (method === "login") {
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
@@ -60,7 +55,7 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
         navigate("/");
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
       alert("Error! Please try again.");
     } finally {
       setLoading(false);
@@ -69,7 +64,11 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <Tabs defaultValue="account" className="w-[400px]" onValueChange={handleTabChange}>
+      <Tabs
+        defaultValue="account"
+        className="w-[400px]"
+        onValueChange={handleTabChange}
+      >
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="account">Sign In</TabsTrigger>
           <TabsTrigger value="register">Register</TabsTrigger>
@@ -78,15 +77,15 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
         {/* Sign In Tab */}
         <TabsContent value="account">
           <Card>
-            <CardHeader>
-              <CardTitle>Account</CardTitle>
-              <CardDescription>
-                Welcome back! Log back into your account with your information
-                below. Click sign in when you're done!
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit}>
+              <CardHeader>
+                <CardTitle>Account</CardTitle>
+                <CardDescription>
+                  Welcome back! Log back into your account with your information
+                  below. Click sign in when you're done!
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-2">
                 <div className="space-y-1">
                   <Label htmlFor="username">Username</Label>
                   <Input
@@ -107,28 +106,28 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
                     placeholder="Password"
                   />
                 </div>
-                <CardFooter>
-                  <Button type="submit" disabled={loading}>
-                    {loading ? "Signing In..." : "Sign In"}
-                  </Button>
-                </CardFooter>
-              </form>
-            </CardContent>
+              </CardContent>
+              <CardFooter>
+                <Button type="submit" disabled={loading}>
+                  {loading ? "Signing In..." : "Sign In"}
+                </Button>
+              </CardFooter>
+            </form>
           </Card>
         </TabsContent>
 
         {/* Register Tab */}
         <TabsContent value="register">
           <Card>
-            <CardHeader>
-              <CardTitle>Register</CardTitle>
-              <CardDescription>
-                Create a new account here! @nutri allows you to save your
-                biometrics to track your personal fitness data and goals.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit}>
+              <CardHeader>
+                <CardTitle>Register</CardTitle>
+                <CardDescription>
+                  Create a new account here! @nutri allows you to save your
+                  biometrics to track your personal fitness data and goals.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-2">
                 <div className="space-y-1">
                   <Label htmlFor="username">Username</Label>
                   <Input
@@ -149,18 +148,18 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
                     placeholder="Password"
                   />
                 </div>
-                <CardFooter>
-                  <Button type="submit" disabled={loading}>
-                    {loading ? "Registering..." : "Register"}
-                  </Button>
-                </CardFooter>
-              </form>
-            </CardContent>
+              </CardContent>
+              <CardFooter>
+                <Button type="submit" disabled={loading}>
+                  {loading ? "Registering..." : "Register"}
+                </Button>
+              </CardFooter>
+            </form>
           </Card>
         </TabsContent>
       </Tabs>
     </div>
   );
-}
+};
 
 export default Form;
