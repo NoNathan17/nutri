@@ -77,7 +77,7 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
         {/* Sign In Tab */}
         <TabsContent value="account">
           <Card>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit}>
               <CardHeader>
                 <CardTitle>Account</CardTitle>
                 <CardDescription>
@@ -119,7 +119,7 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
         {/* Register Tab */}
         <TabsContent value="register">
           <Card>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit}>
               <CardHeader>
                 <CardTitle>Register</CardTitle>
                 <CardDescription>
