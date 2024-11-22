@@ -85,7 +85,7 @@ export function Nutri() {
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="space-y-8">
-        <h1 className="text-2xl font-bold text-center" style={{marginTop: '100px'}}> Meal Tracker !</h1>
+        <h1 className="text-2xl text-center" style={{marginTop: '100px'}}> Meal Tracker !</h1>
         {/* Table */}
         <Table style={{ width: '1000px', backgroundColor: '#d8e3d3', borderRadius: '10px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
           <TableCaption style={{ color: '#44624a', fontFamily: 'Inter, sans-serif', fontSize: '14px' }}>

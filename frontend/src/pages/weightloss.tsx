@@ -68,7 +68,7 @@ const WeightLoss = () => {
           textAlign: "center",
         }}
       >
-        Lbs Lost / Week
+        Pounds Lost / Week
       </TableHead>
     </TableRow>
   </TableHeader>
