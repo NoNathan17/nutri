@@ -1,12 +1,10 @@
 
 import { useState, useEffect } from 'react';
 import ThreeDLogo from '../components/ThreeDLogo';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"; 
 import { Button } from "@/components/ui/button"; 
 import BiometricFormDialog from '../components/BiometricFormDialog';
 import { Link, useNavigate } from 'react-router-dom';
 import { ACCESS_TOKEN } from '@/constants';
-import BiometricsDialog from '@/components/BiometricFormDialog';
 
 
 function Home() {
@@ -58,7 +56,7 @@ function Home() {
         {isLoggedIn && (
         <Link to="/profile">
           <Button variant="outline" className="start-button" onClick={handleStartClick}>
-                dashboard ↺
+                dashboard ↩
           </Button>
         </Link>
         )}

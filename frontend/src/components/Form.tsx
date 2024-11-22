@@ -32,10 +32,12 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
     console.log(value)
     if (value == "account") {
       route="/api/token/";
+      method="login"
     } else {
         route="/api/user/register/";
+        method="register"
     }
-    console.log(route)
+    console.log(route,method)
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,6 +45,7 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
     e.preventDefault();
 
     try {
+      console.log(method, route)
       console.log({ username, password });
       const res = await api.post(route, { username, password });
       console.log("Response:", res.data);
