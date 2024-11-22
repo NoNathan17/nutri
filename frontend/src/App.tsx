@@ -5,7 +5,7 @@ import Register from "./pages/register"
 import Home from "./pages/home"
 import Profile from "./pages/profile"
 import Footer from "./components/footer"
-import Navbar from '@/components/navbar'
+import Navbar from './components/navbar'
 import ProtectedRoute from "./components/ProtectedRoute"
 import { ACCESS_TOKEN } from "./constants";
 
@@ -20,22 +20,10 @@ function RegisterAndLogout() {
 }
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  
-    useEffect(() => {
-      const token = localStorage.getItem(ACCESS_TOKEN); 
-      
-      if (token) {
-        setIsLoggedIn(true); // User is logged in
-      } else {
-        setIsLoggedIn(false); // User is not logged in
-      }
-    }, []);
-
   return (
     <BrowserRouter>
       <div className="flex flex-col min-h-screen">
-        <Navbar isLoggedIn={isLoggedIn}/>
+        <Navbar />
         <div className="flex-grow">
           <Routes>
             <Route
@@ -49,7 +37,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
-            <Route path="/register" element={<RegisterAndLogout />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </div>
         <Footer />

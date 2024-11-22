@@ -12,7 +12,7 @@ import {
 const Profile = () => {
   const [bmi, setBmi] = useState(null);
   const [maintenanceCalories, setMaintenanceCalories] = useState(null);
-  const name = localStorage.getItem('username');
+  const name = localStorage.getItem('name');
 
   useEffect(() => {
     // Fetch user profile data from the backend API
@@ -45,8 +45,8 @@ const Profile = () => {
       <h1 className="form-name">Your Profile</h1>
       <div>
         {/* Conditionally render the BMI and Maintenance Calories */}
-        <h2>BMI: {bmi ? bmi : "Loading..."}</h2>
-        <h2>Maintenance Calories: {maintenanceCalories ? maintenanceCalories : "Loading..."}</h2>
+        <h2>BMI: {bmi ? bmi : "No Data Available"}</h2>
+        <h2>Maintenance Calories: {maintenanceCalories ? maintenanceCalories : "No Data Available"}</h2>
       </div>
       <div>
         <Select onValueChange={(value) => setSelectedPlan(value)}>

@@ -100,7 +100,7 @@ const BiometricsForm = () => {
     
         // Optionally, store the calculated values in local storage or state
         localStorage.setItem('biometricsData', JSON.stringify({ bmi, maintenanceCalories }));
-        localStorage.setItem('username',  name);
+        localStorage.setItem('name',  name);
         navigate("/profile")
         
       } catch (error) {
