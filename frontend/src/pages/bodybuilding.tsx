@@ -32,7 +32,11 @@ const Bodybuilding = () => {
       });
   }, []);
   return (
-    <div style={{ marginTop: '150px', width: '1000px', height: '900px', backgroundColor: '#d8e3d3'}} className="form-container flex flex-col space-y-5">
+    <div style={{ marginTop: '150px', width: '1000px', height: 'auto', backgroundColor: '#d8e3d3'}} className="form-container flex flex-col space-y-5">
+    <h1 style={{ fontSize: '18px', marginTop: '15px' }}>Bodybuilding Plan</h1>
+      <p style={{fontSize: '12px', marginTop: '0px' }}>
+        A plan tailored to build muscle and strength effectively!
+      </p>
     <div>
       {loading ? (<div></div>
           
@@ -114,12 +118,6 @@ const Bodybuilding = () => {
         )}
 
     </div>
-      <h1 style={{ fontSize: '18px' }}>Bodybuilding Plan !!</h1>
-      <div className="mt-4 text-[#44624a]">
-        <p style={{fontSize: '12px' }}>
-          A plan tailored to build muscle and strength effectively.
-        </p>
-      </div>
       <Accordion type="single" collapsible className="w-full text-[#44624a]">
       <AccordionItem value="item-1" className="border-b-[1px] border-[#44624a]">
         <AccordionTrigger>Monday</AccordionTrigger>
