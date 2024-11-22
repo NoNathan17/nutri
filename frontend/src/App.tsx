@@ -1,13 +1,14 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
-import { useState, useEffect } from "react";
 import Login from "./pages/login"
 import Register from "./pages/register"
 import Home from "./pages/home"
 import Profile from "./pages/profile"
+import Bodybuilding from "./pages/bodybuilding"
+import WeightLoss from "./pages/weightloss"
+import GeneralHealth from "./pages/health"
 import Footer from "./components/footer"
 import Navbar from './components/navbar'
 import ProtectedRoute from "./components/ProtectedRoute"
-import { ACCESS_TOKEN } from "./constants";
 
 function Logout() {
   localStorage.clear()
@@ -31,6 +32,30 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/bodybuilding"
+              element={
+                <ProtectedRoute>
+                  <Bodybuilding />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/weightloss"
+              element={
+                <ProtectedRoute>
+                  <WeightLoss />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/health"
+              element={
+                <ProtectedRoute>
+                  <GeneralHealth />
                 </ProtectedRoute>
               }
             />
