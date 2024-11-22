@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import ThreeDLogo from '../components/ThreeDLogo';
 import { Button } from "@/components/ui/button"; 

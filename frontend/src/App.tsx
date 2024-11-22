@@ -6,6 +6,7 @@ import Profile from "./pages/profile"
 import Bodybuilding from "./pages/bodybuilding"
 import WeightLoss from "./pages/weightloss"
 import GeneralHealth from "./pages/health"
+import Nutri from "./pages/nutri"
 import Footer from "./components/footer"
 import Navbar from './components/navbar'
 import ProtectedRoute from "./components/ProtectedRoute"
@@ -58,6 +59,14 @@ function App() {
                   <GeneralHealth />
                 </ProtectedRoute>
               }
+            />
+            <Route
+            path="/nutri"
+            element={
+              <ProtectedRoute>
+                <Nutri />
+              </ProtectedRoute>
+            }
             />
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
