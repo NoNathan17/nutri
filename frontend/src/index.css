@@ -337,6 +337,13 @@ p {
   border: none; /* Removes white border */
   box-shadow: none; /* Removes any shadow */
 }
+.redirect{
+  padding: 8px 12px;
+  margin: 15px;
+  border-radius: 50px;
+  background-color: #f1ebe1;
+  color:#7a9679;
+}
 @media (max-width: 768px) {
   .dropdown-menu {
     max-width: 90%;

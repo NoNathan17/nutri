@@ -28,6 +28,18 @@ const Profile = () => {
       });
   }, []);
 
+    const [selectedPlan, setSelectedPlan] = useState("");
+  
+    const redirection = () => {
+      // Redirect based on the selected option
+      if (selectedPlan == "Bodybuilding") {
+        window.location.href = "/bodybuilding";
+      } else if (selectedPlan == "Weight Loss") {
+        window.location.href = "/weightloss";
+      } else if (selectedPlan == "GeneralHealth") {
+        window.location.href = "/health";
+      }
+    };
   return (
     <div className="form-container">
       <h1 className="form-name">Your Profile</h1>
@@ -37,7 +49,7 @@ const Profile = () => {
         <h2>Maintenance Calories: {maintenanceCalories ? maintenanceCalories : "Loading..."}</h2>
       </div>
       <div>
-        <Select>
+        <Select onValueChange={(value) => setSelectedPlan(value)}>
         <SelectTrigger className="w-[280px]" background-color="#98b496">
                 <SelectValue placeholder="Select Fitness Plan" />
                 </SelectTrigger>
@@ -50,6 +62,7 @@ const Profile = () => {
                 </SelectContent>
 
         </Select>
+        <button className="redirect" onClick={redirection}>Submit</button>
       </div>
     </div>
   );
