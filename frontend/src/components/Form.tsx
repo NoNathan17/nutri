@@ -17,23 +17,25 @@ import { Label } from "@/components/ui/label";
 
 interface FormProps {
   route: string;
+  method: "login" | "register";
 }
 
-const Form: React.FC<FormProps> = ({ route }) => {
+const Form: React.FC<FormProps> = ({ route, method }) => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [currentRoute, setCurrentRoute] = useState<string>(route); 
   const navigate = useNavigate();
 
+  const name = method === "login" ? "Login" : "Register";
+
   const handleTabChange = (value: string) => {
-    console.log(value);
+    console.log(value)
     if (value === "account") {
-      setCurrentRoute("/api/token/"); 
+      route="/api/token/";
     } else {
-      setCurrentRoute("/api/user/register/"); 
+      route="/api/user/register/";
     }
-    console.log(currentRoute);
+    console.log(route)
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -42,14 +44,17 @@ const Form: React.FC<FormProps> = ({ route }) => {
 
     try {
       console.log({ username, password });
-      const res = await api.post(currentRoute, { username, password }); 
+      console.log(route)
+      const res = await api.post(route, { username, password });
       console.log("Response:", res.data);
-
-      localStorage.setItem(ACCESS_TOKEN, res.data.access);
-      localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-      localStorage.setItem("name", username);
-      navigate("/");
-
+      if (method === "login") {
+        localStorage.setItem(ACCESS_TOKEN, res.data.access);
+        localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+        localStorage.setItem('name',  username);
+        navigate("/");
+      } else {
+        navigate("/");
+      }
     } catch (error) {
       console.log(error);
       alert("Error! Please try again.");
