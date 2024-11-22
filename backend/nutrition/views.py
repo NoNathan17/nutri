@@ -12,6 +12,7 @@ from datetime import datetime
 def nutrition_view(request):
     if request.method == 'POST':
         data = {
+            'user': request.data.get('user'),
             'food': request.data.get('food'),
             'calories': request.data.get('calories'),
             'cost': request.data.get('cost'),
@@ -25,7 +26,7 @@ def nutrition_view(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     if request.method == 'GET':
-        meals = Meal.objects.filter(name=request.GET.get('food')).first()
+        meals = Meal.objects.filter(name=request.GET.get('user'))
         if meals:
             serializer = MealSerializer(meals)
             return Response(serializer.data)

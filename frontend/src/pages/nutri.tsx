@@ -21,11 +21,21 @@ export function Nutri() {
 
   const [date, setDate] = useState<Date>();
   const [error, setError] = useState<string | null>(null);
+  const [ totalCost, setTotalCost ] = useState(0)
+  const user = localStorage.getItem('name')
   const [meals, setMeals] = useState([
-    { date: "11/22/24", calories: "95", food: "Apple", cost: "$0.62" },
-    { date: "11/23/24", calories: "440", food: "Egg Salad", cost: "$5.49" },
-    { date: "11/23/24", calories: "231", food: "Croissant", cost: "$4.79" }
+    { date: "11/22/24", calories: "95", food: "Apple", cost: "0.62" },
+    { date: "11/23/24", calories: "440", food: "Egg Salad", cost: "5.49" },
+    { date: "11/23/24", calories: "231", food: "Croissant", cost: "4.79" }
   ]);
+
+  useEffect(() => {
+    const sum = meals.reduce((acc, meal) => {
+      const cost = parseFloat(meal.cost.replace("$", "")); 
+      return acc + (isNaN(cost) ? 0 : cost); 
+    }, 0);
+    setTotalCost(sum);
+  }, [meals]);
 
   useEffect(() => {
     const storedMeals = localStorage.getItem("meals");
@@ -52,11 +62,11 @@ export function Nutri() {
   
     const { food, calories, cost, date } = formData;
     if (!food || !calories || !cost || !date) {
-      setError("All fields are required.");
+      setError("Error. Please try again.");
       return;
     }
   
-    const mealData = { food, calories, cost, date };
+    const mealData = { user, food, calories, cost, date };
   
     try {
       const response = await axios.post('http://localhost:8000/api/nutrition/', mealData);
@@ -75,8 +85,9 @@ export function Nutri() {
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="space-y-8">
+        <h1 className="text-2xl font-bold text-center"> Meal Tracker !</h1>
         {/* Table */}
-        <Table style={{ marginTop: '150px', width: '1000px', backgroundColor: '#d8e3d3', borderRadius: '10px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
+        <Table style={{ width: '1000px', backgroundColor: '#d8e3d3', borderRadius: '10px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
           <TableCaption style={{ color: '#44624a', fontFamily: 'Inter, sans-serif', fontSize: '14px' }}>
             A list of your recent meals!
           </TableCaption>
@@ -94,14 +105,14 @@ export function Nutri() {
                 <TableCell className="font-medium">{meal.date}</TableCell>
                 <TableCell>{meal.calories}</TableCell>
                 <TableCell>{meal.food}</TableCell>
-                <TableCell className="text-right">{meal.cost}</TableCell>
+                <TableCell className="text-right">${meal.cost}</TableCell>
               </TableRow>
             ))}
           </TableBody>
           <TableFooter>
             <TableRow style={{ backgroundColor: '#d8e3d3' }}>
               <TableCell colSpan={3}>Total</TableCell>
-              <TableCell className="text-right">$10.90</TableCell>
+              <TableCell className="text-right">${ totalCost.toFixed(2) }</TableCell>
             </TableRow>
           </TableFooter>
         </Table>
