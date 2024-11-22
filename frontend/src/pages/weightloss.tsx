@@ -16,49 +16,49 @@ const WeightLoss = () => {
     </div>
     <Accordion type="single" collapsible className="w-full text-[#44624a]">
     <AccordionItem value="item-1" className="border-b-[1px] border-[#44624a]">
-      <AccordionTrigger>Day 1</AccordionTrigger>
+      <AccordionTrigger>Monday</AccordionTrigger>
       <AccordionContent>
       Cardio - 30 Min Treadmill, 20 Min HIIT<br />
       + Grilled Chicken Salad, Quinoa, Avocado
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-2" className="border-b-[1px] border-[#44624a]">
-      <AccordionTrigger>Day 2</AccordionTrigger>
+      <AccordionTrigger>Tuesday</AccordionTrigger>
       <AccordionContent>
       Full Body Strength - Squats, Push-Ups, Dumbbell Rows<br />
       + Grilled Salmon, Brown Rice, Steamed Veggies
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-3" className="border-b-[1px] border-[#44624a]">
-      <AccordionTrigger>Day 3</AccordionTrigger>
+      <AccordionTrigger>Wednesday</AccordionTrigger>
       <AccordionContent>
       Cardio - 30 Min Cycling<br />
       + Lean Turkey, Sweet Potato, Roasted Brussel Sprouts
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-4" className="border-b-[1px] border-[#44624a]">
-      <AccordionTrigger>Day 4</AccordionTrigger>
+      <AccordionTrigger>Thursday</AccordionTrigger>
       <AccordionContent>
         Rest day !<br />
       + Salad w/ Mixed Greens, Nuts, Berries
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-5" className="border-b-[1px] border-[#44624a]">
-      <AccordionTrigger>Day 5</AccordionTrigger>
+      <AccordionTrigger>Friday</AccordionTrigger>
       <AccordionContent>
       Lower Body - Lunges, Leg Press, Deadlifts <br />
       + Baked Chicken, Cauliflower Rice, Spinach
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-6" className="border-b-[1px] border-[#44624a]">
-      <AccordionTrigger>Day 6</AccordionTrigger>
+      <AccordionTrigger>Saturday</AccordionTrigger>
       <AccordionContent>
       Upper Body - Push-Ups, Pull-Ups, Bicep Curls <br />
         + Grilled Shrimp, Zucchini Noodles, Garlic
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-7" className="border-b-[1px] border-[#44624a]">
-      <AccordionTrigger>Day 7</AccordionTrigger>
+      <AccordionTrigger>Sunday</AccordionTrigger>
       <AccordionContent>
       Rest day !<br />
       + Protein Shake, Almonds, Banana
