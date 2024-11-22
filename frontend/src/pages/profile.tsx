@@ -22,13 +22,11 @@ const Profile = () => {
     axios
       .get(`http://127.0.0.1:8000/api/biometrics/?name=${name}`)  
       .then((response) => {
-        // Assuming the response contains the necessary data
         setTimeout(() => {
-          // After 2 seconds, update with some sample data
-          setBmi(response.data.bmi); // Example BMI value
-          setMaintenanceCalories(response.data.maintenance_calories); // Example Maintenance Calories value
-          setLoading(false); // Stop loading
-        }, 1500);
+          setBmi(response.data.bmi); 
+          setMaintenanceCalories(response.data.maintenance_calories); 
+          setLoading(false); 
+        }, 1000);
       })
       .catch((error) => {
         console.error("There was an error fetching the biometrics data:", error);

@@ -1,5 +1,3 @@
-import React from "react";
-
 const WeightLoss = () => {
   const workoutPlan = [
     "Day 1: Cardio - 30 minutes on treadmill, 20 minutes HIIT",
