@@ -62,9 +62,8 @@ const Profile = () => {
         ) : (
           <>
             <h1 style={{ fontSize: '18px', marginTop: '15px'}}>{ name }'s Plan</h1>
-            <p style={{fontSize: '12px' }}>BMI: {bmi ? bmi : "No Data Available"}</p>
             <p style={{fontSize: '12px', marginBottom: '30px'}}>Maintenance Calories: {maintenanceCalories ? maintenanceCalories : "No Data Available"}</p>
-            <RadialChart />
+            <RadialChart bmi={bmi || 0} />
             <div
               style={{
                 marginTop: '30px',
@@ -76,7 +75,7 @@ const Profile = () => {
               }}
             >
               <Select onValueChange={(value) => setSelectedPlan(value)}>
-                <SelectTrigger className="w-[280px]" style={{ color: "#44624a", borderColor: '#44624a'}}>
+                <SelectTrigger className="w-[280px]" style={{ color: "#44624a", borderColor: '#44624a', backgroundColor: '#b4c9b1'}}>
                   <SelectValue placeholder="Select Fitness Plan" />
                 </SelectTrigger>
                 <SelectContent className="select-content">
