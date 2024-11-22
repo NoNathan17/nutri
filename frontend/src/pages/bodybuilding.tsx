@@ -69,7 +69,7 @@ const Bodybuilding = () => {
     <h1 style={{ fontSize: '18px', marginTop: '15px' }}>Bodybuilding Plan</h1>
       <p style={{fontSize: '12px', marginTop: '0px' }}>
         A plan tailored to build muscle and strength effectively!<br />
-        BMI: {bmi ? bmi : "No Data Available"} | Maintenance Calories: {maintenanceCalories ? maintenanceCalories : "No Data Available"}
+        BMI: { bmi } | Maintenance Calories: { maintenanceCalories }
       </p>
       <Card style={{marginTop: '10px' }}>
         <CardHeader>

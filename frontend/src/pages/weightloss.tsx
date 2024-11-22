@@ -35,7 +35,7 @@ const WeightLoss = () => {
     <h1 style={{ fontSize: '18px', marginTop: '15px' }}>Weight Loss Plan</h1>
       <p style={{fontSize: '12px', marginTop: '0px' }}>
         Structured guidance for healthy and sustainable weight loss!<br />
-        BMI: {bmi ? bmi : "No Data Available"} | Maintenance Calories: {maintenanceCalories ? maintenanceCalories : "No Data Available"}
+        BMI: { bmi } | Maintenance Calories: { maintenanceCalories }
       </p>
     <div>
       {loading ? (<div></div>
