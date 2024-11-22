@@ -20,7 +20,6 @@ const Profile = () => {
 
   useEffect(() => {
     // Fetch user profile data from the backend API
-    console.log(name)
     axios
       .get(`http://127.0.0.1:8000/api/biometrics/?name=${name}`)  
       .then((response) => {

@@ -3,9 +3,8 @@ import ThreeDLogo from '../components/ThreeDLogo';
 import { Button } from "@/components/ui/button"; 
 import BiometricFormDialog from '../components/BiometricFormDialog';
 import { Link, useNavigate } from 'react-router-dom';
-import { ACCESS_TOKEN } from '@/constants';
-
-
+import { ACCESS_TOKEN
+ } from '@/constants';
 function Home() {
     const navigate = useNavigate();
     
@@ -13,13 +12,12 @@ function Home() {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   
     useEffect(() => {
-      const token = localStorage.getItem(ACCESS_TOKEN); 
       
-      if (token) {
+      if (localStorage.getItem(ACCESS_TOKEN)) {
+        console.log('poop')
+        console.log('fart')
         setIsLoggedIn(true); // User is logged in
-      } else {
-        setIsLoggedIn(false); // User is not logged in
-      }
+      } 
     }, []);
 
     const handleStartClick = () => {
