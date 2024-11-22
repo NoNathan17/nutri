@@ -9,7 +9,7 @@ const GeneralHealth = () => {
 
   return (
     <div style={{ marginTop: '150px', width: '1000px', height: '600px', backgroundColor: '#d8e3d3'}} className="form-container flex flex-col space-y-5">
-    <h1 style={{ fontSize: '18px' }}>General Health Plan</h1>
+    <h1 style={{ fontSize: '18px' }}>General Health Plan !!</h1>
     <div className="mt-4 text-[#44624a]">
       <p style={{fontSize: '12px' }}>
         Tips and routines to maintain overall well-being.
