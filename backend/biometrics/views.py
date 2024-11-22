@@ -7,7 +7,7 @@ from .serializers import BiometricsSerializer
 
 @api_view(['POST', 'GET'])
 @permission_classes([AllowAny])
-def save_biometrics(request):
+def biometrics_view(request):
     if request.method == 'POST':
         # Directly save the biometric data without user linkage
         data = {
@@ -19,7 +19,6 @@ def save_biometrics(request):
             'bmi': request.data.get('bmi'),
             'maintenance_calories': request.data.get('maintenance_calories'),
         }
-        print(data)
 
         # Serialize and save
         serializer = BiometricsSerializer(data=data)
