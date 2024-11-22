@@ -8,10 +8,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Skeleton } from "@/components/ui/skeleton"
 
 const Profile = () => {
   const [bmi, setBmi] = useState(null);
   const [maintenanceCalories, setMaintenanceCalories] = useState(null);
+  const [loading, setLoading] = useState<boolean>(true); // State to manage loading status
+
   const name = localStorage.getItem('name');
 
   useEffect(() => {
@@ -20,8 +23,12 @@ const Profile = () => {
       .get(`http://127.0.0.1:8000/api/biometrics/?name=${name}`)  
       .then((response) => {
         // Assuming the response contains the necessary data
-        setBmi(response.data.bmi);
-        setMaintenanceCalories(response.data.maintenance_calories);
+        setTimeout(() => {
+          // After 2 seconds, update with some sample data
+          setBmi(response.data.bmi); // Example BMI value
+          setMaintenanceCalories(response.data.maintenance_calories); // Example Maintenance Calories value
+          setLoading(false); // Stop loading
+        }, 1500);
       })
       .catch((error) => {
         console.error("There was an error fetching the biometrics data:", error);
@@ -41,31 +48,44 @@ const Profile = () => {
       }
     };
   return (
-    <div className="form-container">
-      <h1 className="form-name">Your Profile</h1>
+    <div className="form-container flex flex-col space-y-3">
       <div>
-        {/* Conditionally render the BMI and Maintenance Calories */}
-        <h2>BMI: {bmi ? bmi : "No Data Available"}</h2>
-        <h2>Maintenance Calories: {maintenanceCalories ? maintenanceCalories : "No Data Available"}</h2>
-      </div>
-      <div>
-        <Select onValueChange={(value) => setSelectedPlan(value)}>
-        <SelectTrigger className="w-[280px]" background-color="#98b496">
-                <SelectValue placeholder="Select Fitness Plan" />
+        {/* Conditionally render skeleton loader or actual data */}
+        {loading ? (
+          <div className="flex flex-col space-y-3">
+            <Skeleton className="h-[100px] w-[250px] rounded-xl" />
+            <Skeleton className="h-[125px] w-[250px] rounded-xl" />
+            <div className="space-y-2">
+              <Skeleton className="h-4 w-[250px]" />
+              <Skeleton className="h-4 w-[200px]" />
+            </div>
+          </div>
+        ) : (
+          <>
+            <h1 className="form-name">Your Profile</h1>
+            <h2>BMI: {bmi ? bmi : "No Data Available"}</h2>
+            <h2>Maintenance Calories: {maintenanceCalories ? maintenanceCalories : "No Data Available"}</h2>
+            <div>
+              <Select onValueChange={(value) => setSelectedPlan(value)}>
+                <SelectTrigger className="w-[280px]" style={{ backgroundColor: "#98b496" }}>
+                  <SelectValue placeholder="Select Fitness Plan" />
                 </SelectTrigger>
                 <SelectContent className="select-content">
-                <SelectGroup>
+                  <SelectGroup>
                     <SelectItem className="select-item" value="Bodybuilding">Bodybuilding</SelectItem>
                     <SelectItem className="select-item" value="Weight Loss">Weight Loss</SelectItem>
                     <SelectItem className="select-item" value="GeneralHealth">General Health</SelectItem>
-                </SelectGroup>
+                  </SelectGroup>
                 </SelectContent>
-
-        </Select>
-        <button className="redirect" onClick={redirection}>Submit</button>
+              </Select>
+              <button className="redirect" onClick={redirection}>
+                Submit
+              </button>
+            </div>
+          </>
+        )}
       </div>
-    </div>
-  );
+  </div>
+);
 };
-
 export default Profile;
