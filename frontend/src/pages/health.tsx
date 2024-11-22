@@ -19,14 +19,14 @@ const GeneralHealth = () => {
     <AccordionItem value="item-1" className="border-b-[1px] border-[#44624a]">
       <AccordionTrigger>Day 1</AccordionTrigger>
       <AccordionContent>
-      Light Cardio - 30 minutes brisk walk or cycling<br />
-      + Chicken Salad with mixed greens and olive oil dressing
+      Light Cardio - 30 Min Brisk Walk / Cycling<br />
+      + Chicken Salad w/ Mixed Green, Olive Oil Dressing
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-2" className="border-b-[1px] border-[#44624a]">
       <AccordionTrigger>Day 2</AccordionTrigger>
       <AccordionContent>
-      Chicken Salad with mixed greens and olive oil dressing<br />
+      Pliometrics, Bodyweight Workouts, 30 Min walk<br />
       + Grilled Fish, Brown Rice, Steamed Vegetables
       </AccordionContent>
     </AccordionItem>
@@ -47,7 +47,7 @@ const GeneralHealth = () => {
     <AccordionItem value="item-5" className="border-b-[1px] border-[#44624a]">
       <AccordionTrigger>Day 5</AccordionTrigger>
       <AccordionContent>
-      Cardio - Swimming / Cycling 45 Min <br />
+      Cardio - 45 Min Swimming / Cycling<br />
       + Grilled Chicken, Quinoa, Roasted Vegetables
       </AccordionContent>
     </AccordionItem>

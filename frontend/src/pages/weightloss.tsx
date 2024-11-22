@@ -32,7 +32,7 @@ const WeightLoss = () => {
     <AccordionItem value="item-3" className="border-b-[1px] border-[#44624a]">
       <AccordionTrigger>Day 3</AccordionTrigger>
       <AccordionContent>
-      Cardio - Cycling, 30 Min<br />
+      Cardio - 30 Min Cycling<br />
       + Lean Turkey, Sweet Potato, Roasted Brussel Sprouts
       </AccordionContent>
     </AccordionItem>
