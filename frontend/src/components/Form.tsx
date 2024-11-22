@@ -24,18 +24,18 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [activeTab, setActiveTab] = useState("account");
   const navigate = useNavigate();
 
   const name = method === "login" ? "Login" : "Register";
 
   const handleTabChange = (value: string) => {
-    setActiveTab(value);
-    if (value === "account") {
-      navigate("/login");
-    } else if (value === "register") {
-      navigate("/register");
+    console.log(value)
+    if (value == "account") {
+      route="/api/token/";
+    } else {
+        route="/api/user/register/";
     }
+    console.log(route)
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
