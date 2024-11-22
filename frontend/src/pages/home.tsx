@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ThreeDLogo from '../components/ThreeDLogo';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"; 
 import { Button } from "@/components/ui/button"; 
@@ -45,15 +45,17 @@ function Home() {
 
         {/* Dialog with BiometricsForm */}
         <div className="middle-tabs">
-        <Link to="/register">
-          <Button variant="outline" className="start-button">
-                start here !! ↩
-          </Button>
-        </Link>
+        {!isLoggedIn && (
+          <Link to="/login">
+            <Button variant="outline" className="start-button">
+                  start here !! ↩
+            </Button>
+          </Link>
+        )}
         <Dialog>
           <DialogTrigger asChild>
             <Button variant="outline" className="start-button" onClick={handleStartClick}>
-              dashboard ↺
+              import biometrics ! 
             </Button>
           </DialogTrigger>
           
@@ -70,7 +72,13 @@ function Home() {
             <BiometricsForm />
           </DialogContent>
         </Dialog>
-
+        {isLoggedIn && (
+        <Link to="/profile">
+          <Button variant="outline" className="start-button" onClick={handleStartClick}>
+                dashboard ↺
+          </Button>
+        </Link>
+        )}
         </div>
 
         <p className="plans-intro">... our personalized plans include</p>

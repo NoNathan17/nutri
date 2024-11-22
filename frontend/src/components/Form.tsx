@@ -49,6 +49,7 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
       if (method === "login") {
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+        localStorage.setItem('name',  username);
         navigate("/");
       } else {
         navigate("/");
@@ -128,23 +129,23 @@ const Form: React.FC<FormProps> = ({ route, method }) => {
               </CardHeader>
               <CardContent className="space-y-2">
                 <div className="space-y-1">
-                  <Label htmlFor="username">New Username</Label>
+                  <Label htmlFor="username">Username</Label>
                   <Input
                     id="username"
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    placeholder="New Username"
+                    placeholder="Username"
                   />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="password">New Password</Label>
+                  <Label htmlFor="password">Password</Label>
                   <Input
                     id="password"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="New Password"
+                    placeholder="Password"
                   />
                 </div>
               </CardContent>

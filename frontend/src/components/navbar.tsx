@@ -1,10 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger} from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-
-interface NavbarProps {
-  isLoggedIn: boolean;
-}
+import { ACCESS_TOKEN } from '@/constants';
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
@@ -30,7 +27,17 @@ const ListItem = React.forwardRef<
 });
 ListItem.displayName = "ListItem";
 
-const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
+const Navbar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem(ACCESS_TOKEN); 
+    
+    if (token) {
+      setIsLoggedIn(true); // User is logged in
+    }
+  }, []);
+
   return (
     <div className="navbar">
       <NavigationMenu>
