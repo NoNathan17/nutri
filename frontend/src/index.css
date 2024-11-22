@@ -121,7 +121,7 @@ p {
 
 .plan-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 20px;
   margin-top: 20px;
 }
@@ -326,8 +326,8 @@ p {
   left: 0;
   right: -1px;
   z-index: 10;
-  max-width: 300px;
-  min-width: 200px;
+  max-width: none;
+  min-width: 215px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -336,6 +336,13 @@ p {
   background-color: #98b496; /* Matches the green background */
   border: none; /* Removes white border */
   box-shadow: none; /* Removes any shadow */
+}
+.redirect{
+  padding: 8px 12px;
+  margin: 15px;
+  border-radius: 50px;
+  background-color: #f1ebe1;
+  color:#7a9679;
 }
 @media (max-width: 768px) {
   .dropdown-menu {

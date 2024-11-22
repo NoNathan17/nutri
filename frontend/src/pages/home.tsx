@@ -1,37 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
 import ThreeDLogo from '../components/ThreeDLogo';
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger} from "@/components/ui/navigation-menu";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"; 
 import { Button } from "@/components/ui/button"; 
-import BiometricsForm from '../components/BiometricsForm';  
-import { cn } from "@/lib/utils";
+import BiometricsForm from '../components/BiometricsForm';
 import { Link, useNavigate } from 'react-router-dom';
 import { ACCESS_TOKEN } from '@/constants';
 
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <a
-        ref={ref}
-        className={cn(
-          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-          className
-        )}
-        {...props}
-      >
-        <div className="text-sm font-medium leading-none">{title}</div>
-        <p className="line-clamp-3 text-sm leading-snug text-muted-foreground">
-          {children}
-        </p>
-      </a>
-    </li>
-  );
-});
-ListItem.displayName = "ListItem";
 
 function Home() {
     const navigate = useNavigate();
@@ -59,54 +34,6 @@ function Home() {
 
   return (
     <div className="app-container">
-      <div className="navbar">
-        {/* ShadCN Navigation Menu */}
-        <NavigationMenu>
-          <NavigationMenuList>
-            {/* Home Link */}
-            <NavigationMenuItem>
-              <NavigationMenuLink className="nav-button" href="/">
-                home
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            {/* Nutr Link */}
-            <NavigationMenuItem>
-              <NavigationMenuLink className="nav-button" href="/nutr">
-                nutri !!
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            {/* Logout Link */}
-            {isLoggedIn && (
-            <NavigationMenuItem>
-              <NavigationMenuLink className="nav-button" href="/logout">
-                logout
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            )}
-
-            {/* Plan Dropdown Link */}
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className="nav-button">plan</NavigationMenuTrigger>
-              <NavigationMenuContent className="dropdown-menu">
-                <ul className="grid w-full gap-3 p-4">
-                  <ListItem href="/bodybuilding" title="Bodybuilding" style={{ color: '#44624A' }}>
-                    A plan tailored to build muscle and strength effectively.
-                  </ListItem>
-                  <ListItem href="/weightloss" title="Weight Loss" style={{ color: '#44624A' }}>
-                    Structured guidance for healthy and sustainable weight loss.
-                  </ListItem>
-                  <ListItem href="/health" title="General Health" style={{ color: '#44624A' }}>
-                    Tips and routines to maintain overall well-being.
-                  </ListItem>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-      </div>
-
       {/* Main Content */}
       <div className="app-container">
         <ThreeDLogo />
@@ -150,27 +77,27 @@ function Home() {
 
         {/* Tab Section */}
         <div className="tabs">
-          <Link to="/plan" className="tab">Bodybuilding</Link>
-          <Link to="/plan" className="tab">Weight Loss</Link>
-          <Link to="/plan" className="tab">General Health</Link>
+          <Link to="/bodybuilding" className="tab">bodybuilding</Link>
+          <Link to="/weightloss" className="tab">weight loss</Link>
+          <Link to="/health" className="tab">general health</Link>
         </div>
 
         {/* Plan Content */}
         <div className="plan-container">
           <div className="plan hover:scale-105 transition-transform duration-200">
-            <h3>✤ Bodybuilding | 健美</h3>
+            <h3>✤ bodybuilding | 健美</h3>
             <p>
               Bodybuilding focuses on building muscle mass and strength through targeted weight training. It helps sculpt your body, improve metabolism, and increase overall vitality. Perfect for those looking to gain muscle while reducing body fat.
             </p>
           </div>
           <div className="plan hover:scale-105 transition-transform duration-200">
-            <h3>✤ Weight Loss | 减肥</h3>
+            <h3>✤ weight loss | 减肥</h3>
             <p>
               Weight loss involves a combination of calorie management, cardiovascular exercise, and strength training. It's designed to reduce body fat and improve fitness levels, leading to better health, more energy, and an overall improved sense of well-being.
             </p>
           </div>
           <div className="plan hover:scale-105 transition-transform duration-200">
-            <h3>✤ General Health | 健康</h3>
+            <h3>✤ general health | 健康</h3>
             <p>
               General Health focuses on holistic well-being, including improving cardiovascular fitness, flexibility, and mental health. This plan is great for anyone seeking to enhance their quality of life, reduce stress, and develop sustainable healthy habits.
             </p>
