@@ -83,7 +83,7 @@ const BiometricsForm = () => {
     const bmi = calculateBMI(height, weight);
     const maintenanceCalories = calculateMaintenanceCalories(
       parseFloat(weight),
-      parseFloat(height) * 2.54, // Convert height from feet and inches to cm
+      parseFloat(height) * 2.54, 
       parseInt(age),
       sex
     );
@@ -94,11 +94,10 @@ const BiometricsForm = () => {
       try {
         const response = await axios.post(
           'http://localhost:8000/api/biometrics/', 
-          biometricsData,  // Send biometric data
+          biometricsData,  
         );
         console.log('Biometrics submitted:', response.data);
     
-        // Optionally, store the calculated values in local storage or state
         localStorage.setItem('biometricsData', JSON.stringify({ bmi, maintenanceCalories }));
         localStorage.setItem('name',  name);
         navigate("/profile")

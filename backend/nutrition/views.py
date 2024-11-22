@@ -4,11 +4,12 @@ from rest_framework import status
 from rest_framework.permissions import AllowAny 
 from .models import Meal
 from .serializers import MealSerializer
+from datetime import datetime
 
 # Create your views here.
 @api_view(['POST', 'GET'])
 @permission_classes([AllowAny])
-def nurtition_view(request):
+def nutrition_view(request):
     if request.method == 'POST':
         data = {
             'food': request.data.get('food'),
