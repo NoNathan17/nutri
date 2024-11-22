@@ -63,7 +63,7 @@ const Form: React.FC = () => {
       <Tabs
         defaultValue="account"
         className="w-[400px]"
-        onValueChange={handleTabChange} // Listen for tab changes
+        onValueChange={handleTabChange}
       >
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="account">Sign In</TabsTrigger>

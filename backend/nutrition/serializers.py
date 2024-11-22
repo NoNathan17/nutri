@@ -4,4 +4,4 @@ from .models import Meal
 class MealSerializer(serializers.ModelSerializer):
     class Meta:
         model = Meal
-        fields = ["food", "calories", "cost", "date"]
+        fields = ["user", "food", "calories", "cost", "date"]
