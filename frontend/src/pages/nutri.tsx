@@ -49,22 +49,22 @@ export function Nutri() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     const { food, calories, cost, date } = formData;
     if (!food || !calories || !cost || !date) {
       setError("All fields are required.");
       return;
     }
-
-    const mealData = { food, calories, cost, date: format(date, "MM/dd/yy") };
-
+  
+    const mealData = { food, calories, cost, date };
+  
     try {
       const response = await axios.post('http://localhost:8000/api/nutrition/', mealData);
       console.log('Meal data submitted:', response.data);
-
+  
       const updatedMeals = [...meals, mealData];
-      localStorage.setItem('meals', JSON.stringify(updatedMeals))
-      window.location.reload()
+      setMeals(updatedMeals);
+      localStorage.setItem('meals', JSON.stringify(updatedMeals));
       handleClear();
     } catch (error) {
       console.error('Error submitting meal', error);
@@ -142,17 +142,20 @@ export function Nutri() {
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={date} // Current selected date, passed as prop
-                        onSelect={(selectedDate) => { // Triggered when a new date is selected
-                          setDate(selectedDate); // Update `date` state
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={(selectedDate) => {
+                        if (selectedDate) { // Ensure selectedDate is not undefined
+                          setDate(selectedDate);
                           setFormData((prevData) => ({
                             ...prevData,
+                            date: format(selectedDate, "MM/dd/yy"), // Safely format the date
                           }));
-                        }}
-                        initialFocus
-                      />
+                        }
+                      }}
+                      initialFocus
+                    />
                     </PopoverContent>
                   </Popover>
                 </div>
