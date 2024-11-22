@@ -45,6 +45,7 @@ const Form: React.FC = () => {
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
         localStorage.setItem("name", username);
         navigate("/");
+        window.location.reload();
       } else {
         navigate("/login");
         window.location.reload();
