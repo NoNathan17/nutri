@@ -45,7 +45,6 @@ const chartConfig = {
 const Bodybuilding = () => {
   const [bmi, setBmi] = useState(null);
   const [maintenanceCalories, setMaintenanceCalories] = useState(null);
-  const [loading, setLoading] = useState<boolean>(true);
 
   const name = localStorage.getItem('name');
 
@@ -57,7 +56,6 @@ const Bodybuilding = () => {
         setTimeout(() => {
           setBmi(response.data.bmi); 
           setMaintenanceCalories(response.data.maintenance_calories); 
-          setLoading(false); 
         }, 1000);
       })
       .catch((error) => {
