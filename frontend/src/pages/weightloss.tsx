@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/accordion"
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Table, TableBody, TableCell , TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
 const WeightLoss = () => {
   const [bmi, setBmi] = useState(null);
